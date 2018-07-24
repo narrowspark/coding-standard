@@ -23,12 +23,13 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.1",
+        "localheinz/php-cs-fixer-config": "^1.14.0",
         "pepakriz/phpstan-exception-rules": "^0.2.0",
         "phpstan/phpstan": "^0.10.2",
         "phpstan/phpstan-deprecation-rules": "^0.10.2",
         "phpstan/phpstan-phpunit": "^0.10.2",
         "phpstan/phpstan-strict-rules": "^0.10.2",
-        "localheinz/php-cs-fixer-config": "^1.14.0"
+        "thecodingmachine/phpstan-strict-rules": "^0.10.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^7.2.0"

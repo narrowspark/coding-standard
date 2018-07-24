@@ -14,10 +14,12 @@ Edit your `phpstan.neon` file and add these rules:
 
 ```neon
 includes:
+    - vendor/pepakriz/phpstan-exception-rules/extension.neon
     - vendor/phpstan/phpstan-deprecation-rules/rules.neon
     - vendor/phpstan/phpstan-phpunit/extension.neon
     - vendor/phpstan/phpstan-phpunit/rules.neon
     - vendor/phpstan/phpstan-strict-rules/rules.neon
+    - vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
 ```
 Then edit your `composer.json` file and add these scripts:
 
