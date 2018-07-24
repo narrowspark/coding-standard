@@ -1,0 +1,43 @@
+{
+    "name": "narrowspark/coding-standard",
+    "description": "The Narrowspark Coding Standard for is a set of phpstan and php-cs-fixer rules applied to all Narrowspark projects.",
+    "type": "library",
+    "keywords": [
+        "narrowspark",
+        "cs",
+        "cs-fixer",
+        "config",
+        "php-cs-fixer"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/narrowspark/coding-standard",
+    "authors": [
+        {
+            "name": "Daniel Bannert",
+            "email": "d.bannert@anolilab.de",
+            "homepage": "http://www.anolilab.de",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.1",
+        "pepakriz/phpstan-exception-rules": "^0.2.0",
+        "phpstan/phpstan": "^0.10.2",
+        "phpstan/phpstan-deprecation-rules": "^0.10.2",
+        "phpstan/phpstan-phpunit": "^0.10.2",
+        "phpstan/phpstan-strict-rules": "^0.10.2",
+        "localheinz/php-cs-fixer-config": "^1.14.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.2.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "support": {
+        "issues": "https://github.com/narrowspark/coding-standard/issues",
+        "source": "https://github.com/narrowspark/coding-standard"
+    }
+}
