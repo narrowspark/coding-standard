@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "85341c254d64ea5a35cfe28720746ff1",
+    "content-hash": "269d2dc50632cba737808566dd3fe243",
     "packages": [
         {
             "name": "composer/semver",
@@ -416,6 +416,60 @@
             "description": "Provides a configuration factory and multiple rule sets for friendsofphp/php-cs-fixer.",
             "homepage": "https://github.com/localheinz/php-cs-fixer-config",
             "time": "2018-07-07T10:38:32+00:00"
+        },
+        {
+            "name": "narrowspark/php-cs-fixer-config",
+            "version": "v3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/narrowspark/php-cs-fixer-config.git",
+                "reference": "42fc21a9239a8d6c6abe2cb7b4253122b547486d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/narrowspark/php-cs-fixer-config/zipball/42fc21a9239a8d6c6abe2cb7b4253122b547486d",
+                "reference": "42fc21a9239a8d6c6abe2cb7b4253122b547486d",
+                "shasum": ""
+            },
+            "require": {
+                "localheinz/php-cs-fixer-config": "^1.14.0",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.10.0",
+                "phpstan/phpstan-deprecation-rules": "^0.10.0",
+                "phpstan/phpstan-phpunit": "^0.10.0",
+                "phpstan/phpstan-strict-rules": "^0.10.0",
+                "phpunit/phpunit": "^7.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Narrowspark\\CS\\Config\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Bannert",
+                    "email": "d.bannert@anolilab.de",
+                    "homepage": "http://www.anolilab.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Provides a configuration for friendsofphp/php-cs-fixer, used within Narrowspark.",
+            "homepage": "https://github.com/narrowspark/php-cs-fixer-config",
+            "keywords": [
+                "config",
+                "cs",
+                "cs-fixer",
+                "narrowspark",
+                "php-cs-fixer"
+            ],
+            "time": "2018-06-27T19:10:05+00:00"
         },
         {
             "name": "nette/bootstrap",

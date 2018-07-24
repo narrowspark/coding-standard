@@ -21,6 +21,32 @@ includes:
     - vendor/phpstan/phpstan-strict-rules/rules.neon
     - vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
 ```
+
+Create a configuration file `.php_cs` in the root of your project:
+
+```php
+<?php
+declare(strict_types=1);
+use Narrowspark\CS\Config\Config;
+
+$config = new Config();
+$config->getFinder()
+    ->files()
+    ->in(__DIR__ . DIRECTORY_SEPARATOR . 'src')
+    ->exclude('build')
+    ->exclude('vendor')
+    ->name('*.php')
+    ->ignoreDotFiles(true)
+    ->ignoreVCS(true);
+
+$cacheDir = getenv('TRAVIS') ? getenv('HOME') . '/.php-cs-fixer' : __DIR__;
+
+$config->setCacheFile($cacheDir . '/.php_cs.cache');
+
+return $config;
+```
+> **Info:** For more info, take a look on https://github.com/narrowspark/php-cs-fixer-config
+
 Then edit your `composer.json` file and add these scripts:
 
 ```json
@@ -31,6 +57,9 @@ Then edit your `composer.json` file and add these scripts:
   }
 }
 ```
+
+Add `.php_cs.cache` to your `.gitignore` file.
+
 Versioning
 ------------
 This library follows semantic versioning, and additions to the code ruleset are only performed in major releases.
