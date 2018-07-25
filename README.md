@@ -10,6 +10,7 @@ composer require narrowspark/coding-standard
 
 Use
 ------------
+#### PHPstan
 Edit your `phpstan.neon` file and add these rules:
 
 ```neon
@@ -22,6 +23,7 @@ includes:
     - vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
 ```
 
+#### PHP-CS-Fixer
 Create a configuration file `.php_cs` in the root of your project:
 
 ```php
@@ -45,11 +47,14 @@ $config->setCacheFile($cacheDir . '/.php_cs.cache');
 
 return $config;
 ```
+
 > **Info:**
 >
 > The used [php-cs-fixer rules](PHP-CS-Fixer-List.md).
 >
 > For more info, take a look on [php-cs-fixer-config](https://github.com/narrowspark/php-cs-fixer-config).
+
+#### Composer
 
 Then edit your `composer.json` file and add these scripts:
 
