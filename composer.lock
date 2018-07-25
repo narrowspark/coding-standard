@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "925f0c08970bfdb2e1b406d5b42ad42a",
+    "content-hash": "67a9d4486b6a25a2f7c283d1ec493978",
     "packages": [
         {
             "name": "composer/semver",
@@ -1099,16 +1099,16 @@
         },
         {
             "name": "pepakriz/phpstan-exception-rules",
-            "version": "v0.2.0",
+            "version": "v0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pepakriz/phpstan-exception-rules.git",
-                "reference": "6139f1fb5f5066a414eb9d89988c02c1c522bada"
+                "reference": "d59528f464a4018d5076e71d8a37e59167bb3954"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pepakriz/phpstan-exception-rules/zipball/6139f1fb5f5066a414eb9d89988c02c1c522bada",
-                "reference": "6139f1fb5f5066a414eb9d89988c02c1c522bada",
+                "url": "https://api.github.com/repos/pepakriz/phpstan-exception-rules/zipball/d59528f464a4018d5076e71d8a37e59167bb3954",
+                "reference": "d59528f464a4018d5076e71d8a37e59167bb3954",
                 "shasum": ""
             },
             "require": {
@@ -1130,7 +1130,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.2-dev"
+                    "dev-master": "0.3-dev"
                 }
             },
             "autoload": {
@@ -1143,7 +1143,7 @@
                 "MIT"
             ],
             "description": "Exception rules for PHPStan",
-            "time": "2018-06-28T07:48:50+00:00"
+            "time": "2018-07-25T06:54:57+00:00"
         },
         {
             "name": "php-cs-fixer/diff",
