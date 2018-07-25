@@ -22,6 +22,9 @@ includes:
     - vendor/phpstan/phpstan-strict-rules/rules.neon
     - vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
 ```
+Follow the links to check, how to configure some of the rules:
+- https://github.com/pepakriz/phpstan-exception-rules
+- https://github.com/phpstan/phpstan-strict-rules
 
 #### PHP-CS-Fixer
 Create a configuration file `.php_cs` in the root of your project:
