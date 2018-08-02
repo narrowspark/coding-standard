@@ -11,7 +11,8 @@ composer require narrowspark/coding-standard
 Use
 ------------
 #### PHPstan
-Edit your `phpstan.neon` file and add these rules:
+
+Create a configuration file `phpstan.neon` and add these rules:
 
 ```neon
 includes:
@@ -27,7 +28,8 @@ Follow the links to check, how to configure some of the rules:
 - https://github.com/phpstan/phpstan-strict-rules
 
 #### PHP-CS-Fixer
-Create a configuration file `.php_cs` in the root of your project:
+
+Create a configuration file `.php_cs` in the root of your project with this content:
 
 ```php
 <?php
@@ -55,7 +57,43 @@ return $config;
 >
 > The used [php-cs-fixer rules](PHP-CS-Fixer-List.md).
 >
-> For more info, take a look on [php-cs-fixer-config](https://github.com/narrowspark/php-cs-fixer-config).
+> For more information, take a look on [php-cs-fixer-config](https://github.com/narrowspark/php-cs-fixer-config).
+
+#### Changelog
+
+Create this labels on github `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`
+
+Create a configuration file `.changelog` in the root of your project with this content:
+
+```php
+<?php
+declare(strict_types=1);
+
+use ChangelogGenerator\ChangelogConfig;
+
+return [
+    (new ChangelogConfig(
+        '{organisation name}',
+        '{repository name}',
+        '{your next version}',
+        ['Added', 'Changed', 'Deprecated', 'Removed', 'Fixed', 'Security']
+    ))
+];
+```
+
+Create a `CHANGELOG.md` file and put this on the top.
+
+```markdown
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+```
+
+> **Info:**
+> For more information, take a look on [keepachangelog](https://keepachangelog.com/en/1.0.0/).
 
 #### Composer
 
@@ -65,7 +103,8 @@ Then edit your `composer.json` file and add these scripts:
 {
   "scripts": {
     "cs": "php-cs-fixer fix",
-    "phpstan": "phpstan analyse -c phpstan.neon -l 7 src --memory-limit=-1"
+    "phpstan": "phpstan analyse -c phpstan.neon -l 7 src --memory-limit=-1",
+     "changelog":  "changelog-generator generate --config=\".changelog\" --file --append"
   }
 }
 ```
