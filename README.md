@@ -1,5 +1,5 @@
 <h2 align="center">Narrowspark Coding Standard</h2>
-<h3 align="center">The Narrowspark Coding Standard for is a set of phpstan and php-cs-fixer rules applied to all Narrowspark projects.</h3>
+<h3 align="center">The Narrowspark Coding Standard for all  Narrowspark projects.</h3>
 
 Installation
 ------------
