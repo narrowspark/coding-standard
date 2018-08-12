@@ -28,10 +28,11 @@
         "jwage/changelog-generator": "^0.0.6",
         "narrowspark/php-cs-fixer-config": "^3.0.3",
         "pepakriz/phpstan-exception-rules": "^0.3.0",
-        "phpstan/phpstan": "^0.10.2",
-        "phpstan/phpstan-deprecation-rules": "^0.10.2",
-        "phpstan/phpstan-phpunit": "^0.10.2",
-        "phpstan/phpstan-strict-rules": "^0.10.2",
+        "phpstan/phpstan": "^0.10.3",
+        "phpstan/phpstan-deprecation-rules": "^0.10.3",
+        "phpstan/phpstan-mockery": "^0.10.3",
+        "phpstan/phpstan-phpunit": "^0.10.3",
+        "phpstan/phpstan-strict-rules": "^0.10.3",
         "thecodingmachine/phpstan-strict-rules": "^0.10.3"
     },
     "config": {
