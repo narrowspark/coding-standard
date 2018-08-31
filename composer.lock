@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "34f1d4551389372be0a611f4b16cbd86",
+    "content-hash": "af1ac20edb4a5bad4697eefe3a06190a",
     "packages": [
         {
             "name": "composer/semver",
@@ -70,16 +70,16 @@
         },
         {
             "name": "composer/xdebug-handler",
-            "version": "1.1.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/xdebug-handler.git",
-                "reference": "c919dc6c62e221fc6406f861ea13433c0aa24f08"
+                "reference": "e37cbd80da64afe314c72de8d2d2fec0e40d9373"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/c919dc6c62e221fc6406f861ea13433c0aa24f08",
-                "reference": "c919dc6c62e221fc6406f861ea13433c0aa24f08",
+                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/e37cbd80da64afe314c72de8d2d2fec0e40d9373",
+                "reference": "e37cbd80da64afe314c72de8d2d2fec0e40d9373",
                 "shasum": ""
             },
             "require": {
@@ -110,7 +110,7 @@
                 "Xdebug",
                 "performance"
             ],
-            "time": "2018-04-11T15:42:36+00:00"
+            "time": "2018-08-23T12:00:19+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -236,21 +236,21 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v2.12.2",
+            "version": "v2.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "dcc87d5414e9d0bd316fce81a5bedb9ce720b183"
+                "reference": "7136aa4e0c5f912e8af82383775460d906168a10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/dcc87d5414e9d0bd316fce81a5bedb9ce720b183",
-                "reference": "dcc87d5414e9d0bd316fce81a5bedb9ce720b183",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/7136aa4e0c5f912e8af82383775460d906168a10",
+                "reference": "7136aa4e0c5f912e8af82383775460d906168a10",
                 "shasum": ""
             },
             "require": {
                 "composer/semver": "^1.4",
-                "composer/xdebug-handler": "^1.0",
+                "composer/xdebug-handler": "^1.2",
                 "doctrine/annotations": "^1.2",
                 "ext-json": "*",
                 "ext-tokenizer": "*",
@@ -292,6 +292,11 @@
                 "php-cs-fixer"
             ],
             "type": "application",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.13-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "PhpCsFixer\\": "src/"
@@ -323,7 +328,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2018-07-06T10:37:40+00:00"
+            "time": "2018-08-23T13:15:44+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -616,20 +621,20 @@
         },
         {
             "name": "localheinz/php-cs-fixer-config",
-            "version": "1.14.1",
+            "version": "1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/localheinz/php-cs-fixer-config.git",
-                "reference": "55f2777e0cf93026ed325238e944257a2a22d38e"
+                "reference": "bdd00adc049d4e78f1abea54ed6b01fa0de200df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/php-cs-fixer-config/zipball/55f2777e0cf93026ed325238e944257a2a22d38e",
-                "reference": "55f2777e0cf93026ed325238e944257a2a22d38e",
+                "url": "https://api.github.com/repos/localheinz/php-cs-fixer-config/zipball/bdd00adc049d4e78f1abea54ed6b01fa0de200df",
+                "reference": "bdd00adc049d4e78f1abea54ed6b01fa0de200df",
                 "shasum": ""
             },
             "require": {
-                "friendsofphp/php-cs-fixer": "^2.12.2",
+                "friendsofphp/php-cs-fixer": "^2.13.0",
                 "php": "^5.6 || ^7.0"
             },
             "require-dev": {
@@ -653,31 +658,32 @@
             ],
             "description": "Provides a configuration factory and multiple rule sets for friendsofphp/php-cs-fixer.",
             "homepage": "https://github.com/localheinz/php-cs-fixer-config",
-            "time": "2018-07-07T10:38:32+00:00"
+            "time": "2018-08-23T14:47:20+00:00"
         },
         {
             "name": "narrowspark/php-cs-fixer-config",
-            "version": "v3.0.3",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/narrowspark/php-cs-fixer-config.git",
-                "reference": "49907dcac0b02736c4f85ec982e257a2729e9b06"
+                "reference": "135b92eff2ec98e4de9dc0869363697baffe9ffa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/narrowspark/php-cs-fixer-config/zipball/49907dcac0b02736c4f85ec982e257a2729e9b06",
-                "reference": "49907dcac0b02736c4f85ec982e257a2729e9b06",
+                "url": "https://api.github.com/repos/narrowspark/php-cs-fixer-config/zipball/135b92eff2ec98e4de9dc0869363697baffe9ffa",
+                "reference": "135b92eff2ec98e4de9dc0869363697baffe9ffa",
                 "shasum": ""
             },
             "require": {
-                "localheinz/php-cs-fixer-config": "^1.14.0",
+                "localheinz/php-cs-fixer-config": "1.15.*",
+                "pedrotroller/php-cs-custom-fixer": "^2.15.0",
                 "php": "^7.1"
             },
             "require-dev": {
-                "phpstan/phpstan": "^0.10.2",
-                "phpstan/phpstan-deprecation-rules": "^0.10.2",
-                "phpstan/phpstan-phpunit": "^0.10.2",
-                "phpstan/phpstan-strict-rules": "^0.10.2",
+                "phpstan/phpstan": "^0.10.3",
+                "phpstan/phpstan-deprecation-rules": "^0.10.3",
+                "phpstan/phpstan-phpunit": "^0.10.3",
+                "phpstan/phpstan-strict-rules": "^0.10.3",
                 "phpunit/phpunit": "^7.2.0"
             },
             "type": "library",
@@ -707,7 +713,7 @@
                 "narrowspark",
                 "php-cs-fixer"
             ],
-            "time": "2018-07-24T14:53:21+00:00"
+            "time": "2018-08-31T07:10:25+00:00"
         },
         {
             "name": "nette/bootstrap",
@@ -1041,16 +1047,16 @@
         },
         {
             "name": "nette/robot-loader",
-            "version": "v3.0.4",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/robot-loader.git",
-                "reference": "3cf88781a05e0bf4618ae605361afcbaa4d5b392"
+                "reference": "fc76c70e740b10f091e502b2e393d0be912f38d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/robot-loader/zipball/3cf88781a05e0bf4618ae605361afcbaa4d5b392",
-                "reference": "3cf88781a05e0bf4618ae605361afcbaa4d5b392",
+                "url": "https://api.github.com/repos/nette/robot-loader/zipball/fc76c70e740b10f091e502b2e393d0be912f38d4",
+                "reference": "fc76c70e740b10f091e502b2e393d0be912f38d4",
                 "shasum": ""
             },
             "require": {
@@ -1069,7 +1075,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "3.1-dev"
                 }
             },
             "autoload": {
@@ -1102,7 +1108,7 @@
                 "nette",
                 "trait"
             ],
-            "time": "2018-06-22T09:34:04+00:00"
+            "time": "2018-08-13T14:19:06+00:00"
         },
         {
             "name": "nette/utils",
@@ -1332,17 +1338,58 @@
             "time": "2018-07-02T15:55:56+00:00"
         },
         {
-            "name": "pepakriz/phpstan-exception-rules",
-            "version": "v0.3.0",
+            "name": "pedrotroller/php-cs-custom-fixer",
+            "version": "v2.15.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/pepakriz/phpstan-exception-rules.git",
-                "reference": "d59528f464a4018d5076e71d8a37e59167bb3954"
+                "url": "https://github.com/PedroTroller/PhpCSFixer-Custom-Fixers.git",
+                "reference": "a5fd70cb457974b197627146b001d7e08605e1f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pepakriz/phpstan-exception-rules/zipball/d59528f464a4018d5076e71d8a37e59167bb3954",
-                "reference": "d59528f464a4018d5076e71d8a37e59167bb3954",
+                "url": "https://api.github.com/repos/PedroTroller/PhpCSFixer-Custom-Fixers/zipball/a5fd70cb457974b197627146b001d7e08605e1f5",
+                "reference": "a5fd70cb457974b197627146b001d7e08605e1f5",
+                "shasum": ""
+            },
+            "require": {
+                "friendsofphp/php-cs-fixer": "~2.12@dev",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "^3.4",
+                "twig/twig": "^1.35",
+                "webmozart/assert": "^1.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PedroTroller\\CS\\": "src/PedroTroller/CS/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP-CS-FIXER : my custom fixers",
+            "time": "2018-08-29T14:42:03+00:00"
+        },
+        {
+            "name": "pepakriz/phpstan-exception-rules",
+            "version": "v0.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pepakriz/phpstan-exception-rules.git",
+                "reference": "d4c13769c84d1d835beb53b70b98156b83579e67"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pepakriz/phpstan-exception-rules/zipball/d4c13769c84d1d835beb53b70b98156b83579e67",
+                "reference": "d4c13769c84d1d835beb53b70b98156b83579e67",
                 "shasum": ""
             },
             "require": {
@@ -1377,7 +1424,7 @@
                 "MIT"
             ],
             "description": "Exception rules for PHPStan",
-            "time": "2018-07-25T06:54:57+00:00"
+            "time": "2018-08-12T18:50:37+00:00"
         },
         {
             "name": "php-cs-fixer/diff",
@@ -1593,16 +1640,16 @@
         },
         {
             "name": "phpstan/phpstan-mockery",
-            "version": "dev-master",
+            "version": "0.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-mockery.git",
-                "reference": "bdf8ded0d8c03a830faccd3ead0c0ff962cc41b6"
+                "reference": "2a30b98708197c4439e0ec5c2ecf9451ffaed85b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-mockery/zipball/bdf8ded0d8c03a830faccd3ead0c0ff962cc41b6",
-                "reference": "bdf8ded0d8c03a830faccd3ead0c0ff962cc41b6",
+                "url": "https://api.github.com/repos/phpstan/phpstan-mockery/zipball/2a30b98708197c4439e0ec5c2ecf9451ffaed85b",
+                "reference": "2a30b98708197c4439e0ec5c2ecf9451ffaed85b",
                 "shasum": ""
             },
             "require": {
@@ -1638,7 +1685,7 @@
                 "MIT"
             ],
             "description": "PHPStan Mockery extension",
-            "time": "2018-08-12T15:15:14+00:00"
+            "time": "2018-08-13T20:17:04+00:00"
         },
         {
             "name": "phpstan/phpstan-phpunit",
@@ -1835,7 +1882,7 @@
         },
         {
             "name": "symfony/console",
-            "version": "v4.1.3",
+            "version": "v4.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
@@ -1903,7 +1950,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v4.1.3",
+            "version": "v4.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -1966,16 +2013,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v4.1.3",
+            "version": "v4.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "2e30335e0aafeaa86645555959572fe7cea22b43"
+                "reference": "c0f5f62db218fa72195b8b8700e4b9b9cf52eb5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/2e30335e0aafeaa86645555959572fe7cea22b43",
-                "reference": "2e30335e0aafeaa86645555959572fe7cea22b43",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/c0f5f62db218fa72195b8b8700e4b9b9cf52eb5e",
+                "reference": "c0f5f62db218fa72195b8b8700e4b9b9cf52eb5e",
                 "shasum": ""
             },
             "require": {
@@ -2012,11 +2059,11 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2018-07-26T11:24:31+00:00"
+            "time": "2018-08-18T16:52:46+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v4.1.3",
+            "version": "v4.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -2065,7 +2112,7 @@
         },
         {
             "name": "symfony/options-resolver",
-            "version": "v4.1.3",
+            "version": "v4.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
@@ -2350,16 +2397,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v4.1.3",
+            "version": "v4.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "f01fc7a4493572f7f506c49dcb50ad01fb3a2f56"
+                "reference": "86cdb930a6a855b0ab35fb60c1504cb36184f843"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/f01fc7a4493572f7f506c49dcb50ad01fb3a2f56",
-                "reference": "f01fc7a4493572f7f506c49dcb50ad01fb3a2f56",
+                "url": "https://api.github.com/repos/symfony/process/zipball/86cdb930a6a855b0ab35fb60c1504cb36184f843",
+                "reference": "86cdb930a6a855b0ab35fb60c1504cb36184f843",
                 "shasum": ""
             },
             "require": {
@@ -2395,11 +2442,11 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-07-26T11:24:31+00:00"
+            "time": "2018-08-03T11:13:38+00:00"
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v4.1.3",
+            "version": "v4.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",

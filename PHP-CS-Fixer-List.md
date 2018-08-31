@@ -45,6 +45,7 @@
     'class_keyword_remove' => false,
     'combine_consecutive_issets' => true,
     'combine_consecutive_unsets' => true,
+    'combine_nested_dirname' => true,
     'comment_to_phpdoc' => true,
     'compact_nullable_typehint' => true,
     'concat_space' => [
@@ -79,6 +80,8 @@
     'explicit_indirect_variable' => true,
     'explicit_string_variable' => true,
     'final_internal_class' => true,
+    'fopen_flag_order' => false,
+    'fopen_flags' => false,
     'fully_qualified_strict_types' => true,
     'function_to_constant' => true,
     'function_typehint_space' => true,
@@ -86,6 +89,7 @@
     'hash_to_slash_comment' => true,
     'header_comment' => false,
     'heredoc_to_nowdoc' => true,
+    'implode_call' => true,
     'include' => true,
     'increment_style' => [
         'style' => 'post',
@@ -99,6 +103,7 @@
     'lowercase_cast' => true,
     'lowercase_static_reference' => true,
     'magic_constant_casing' => true,
+    'magic_method_casing' => true,
     'mb_str_functions' => true,
     'method_argument_space' => [
         'ensure_fully_multiline' => true,
@@ -190,6 +195,7 @@
             2 => 'normal',
         ],
     ],
+    'php_unit_method_casing' => true,
     'php_unit_mock' => true,
     'php_unit_namespaced' => [
         'target' => 'newest',
@@ -274,5 +280,17 @@
     'whitespace_after_comma_in_array' => true,
     'yoda_style' => false,
     '@DoctrineAnnotation' => true,
+    'PedroTroller/comment_line_to_phpdoc_block' => false,
+    'PedroTroller/exceptions_punctuation' => true,
+    'PedroTroller/forbidden_functions' => false,
+    'PedroTroller/ordered_with_getter_and_setter_first' => true,
+    'PedroTroller/line_break_between_method_arguments' => [
+        'max-args' => 4,
+        'max-length' => 120,
+        'automatic-argument-merge' => true,
+    ],
+    'PedroTroller/line_break_between_statements' => true,
+    'PedroTroller/useless_code_after_return' => false,
+    'PedroTroller/phpspec' => false,
 ]
 ```
