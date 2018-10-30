@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6df052a9298a9137a2a0d7fffbd739ef",
+    "content-hash": "cbdc6bacc2789414a633d8635c05ebbf",
     "packages": [
         {
             "name": "composer/semver",
@@ -661,16 +661,16 @@
         },
         {
             "name": "narrowspark/php-cs-fixer-config",
-            "version": "3.3.0",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/narrowspark/php-cs-fixer-config.git",
-                "reference": "5077179ccb13d92f5ca47da5d98c3538f9d20bcb"
+                "reference": "06496953e0a12f9afeb19086d752c970ef6864f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/narrowspark/php-cs-fixer-config/zipball/5077179ccb13d92f5ca47da5d98c3538f9d20bcb",
-                "reference": "5077179ccb13d92f5ca47da5d98c3538f9d20bcb",
+                "url": "https://api.github.com/repos/narrowspark/php-cs-fixer-config/zipball/06496953e0a12f9afeb19086d752c970ef6864f9",
+                "reference": "06496953e0a12f9afeb19086d752c970ef6864f9",
                 "shasum": ""
             },
             "require": {
@@ -712,7 +712,7 @@
                 "narrowspark",
                 "php-cs-fixer"
             ],
-            "time": "2018-10-26T07:42:19+00:00"
+            "time": "2018-10-30T16:54:31+00:00"
         },
         {
             "name": "nette/bootstrap",
@@ -2494,16 +2494,16 @@
         },
         {
             "name": "thecodingmachine/phpstan-strict-rules",
-            "version": "v0.10.6",
+            "version": "v0.10.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/phpstan-strict-rules.git",
-                "reference": "444e1343a639bc19d8bce711c60b46057d62da4c"
+                "reference": "bf15df9169b3909ad5eb3b7825b70e793c8b4520"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/phpstan-strict-rules/zipball/444e1343a639bc19d8bce711c60b46057d62da4c",
-                "reference": "444e1343a639bc19d8bce711c60b46057d62da4c",
+                "url": "https://api.github.com/repos/thecodingmachine/phpstan-strict-rules/zipball/bf15df9169b3909ad5eb3b7825b70e793c8b4520",
+                "reference": "bf15df9169b3909ad5eb3b7825b70e793c8b4520",
                 "shasum": ""
             },
             "require": {
@@ -2536,7 +2536,7 @@
                 }
             ],
             "description": "A set of additional rules for PHPStan based on best practices followed at TheCodingMachine",
-            "time": "2018-10-15T14:01:21+00:00"
+            "time": "2018-10-30T10:43:52+00:00"
         }
     ],
     "packages-dev": [],
