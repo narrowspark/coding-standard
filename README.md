@@ -12,7 +12,9 @@ Use
 ------------
 #### PHPstan
 
-Create a configuration file `phpstan.neon` and add these rules:
+Create a configuration file `phpstan.neon` 
+
+Add these rules or use `composer require --dev phpstan/extension-installer`.
 
 ```neon
 includes:

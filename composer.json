@@ -24,16 +24,21 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.1",
-        "jwage/changelog-generator": "^0.0.7",
-        "narrowspark/php-cs-fixer-config": "^3.4.0",
-        "pepakriz/phpstan-exception-rules": "^0.3.3",
-        "phpstan/phpstan": "^0.10.5",
-        "phpstan/phpstan-deprecation-rules": "^0.10.2",
-        "phpstan/phpstan-mockery": "^0.10.2",
-        "phpstan/phpstan-phpunit": "^0.10.0",
-        "phpstan/phpstan-strict-rules": "^0.10.1",
-        "thecodingmachine/phpstan-strict-rules": "^0.10.6"
+        "php": "^7.2",
+        "jwage/changelog-generator": "^1.2.0",
+        "narrowspark/php-cs-fixer-config": "^4.0.0",
+        "pepakriz/phpstan-exception-rules": "^0.8.2",
+        "phpstan/phpstan": "^0.11.12",
+        "phpstan/phpstan-deprecation-rules": "^0.11.2",
+        "phpstan/phpstan-mockery": "^0.11.1",
+        "phpstan/phpstan-phpunit": "^0.11.2",
+        "phpstan/phpstan-strict-rules": "^0.11.1",
+        "thecodingmachine/phpstan-strict-rules": "^0.11.2"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "": "bin"
+        }
     },
     "config": {
         "sort-packages": true
@@ -41,5 +46,11 @@
     "support": {
         "issues": "https://github.com/narrowspark/coding-standard/issues",
         "source": "https://github.com/narrowspark/coding-standard"
+    },
+    "require-dev": {
+        "symfony/var-exporter": "^4.3"
+    },
+    "scripts": {
+        "build": "\\CreatePhpCsFixerList::build"
     }
 }
