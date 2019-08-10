@@ -57,6 +57,14 @@ $config->setCacheFile($cacheDir . '/.php_cs.cache');
 return $config;
 ```
 
+#### psalm
+
+Add your config with this command.
+
+```bash
+./vendor/bin/psalm --init
+```
+
 > **Info:**
 >
 > The used [php-cs-fixer rules](PHP-CS-Fixer-List.md).
@@ -108,8 +116,18 @@ Then edit your `composer.json` file and add these scripts:
   "scripts": {
     "cs": "php-cs-fixer fix",
     "phpstan": "phpstan analyse -c phpstan.neon -l 7 src --memory-limit=-1",
+    "psalm": "psalm",
      "changelog":  "changelog-generator generate --config=\".changelog\" --file --append"
   }
+}
+```
+
+> Tip: if some processes taking longer than the default composer `process-timeout: 300` you can add this to in your composer.json
+```jsonp
+{
+    "config": {
+        "process-timeout": 2000 #choose you need time
+    }
 }
 ```
 

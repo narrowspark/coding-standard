@@ -30,10 +30,11 @@
         "pepakriz/phpstan-exception-rules": "^0.8.2",
         "phpstan/phpstan": "^0.11.12",
         "phpstan/phpstan-deprecation-rules": "^0.11.2",
-        "phpstan/phpstan-mockery": "^0.11.1",
+        "phpstan/phpstan-mockery": "^0.11.2",
         "phpstan/phpstan-phpunit": "^0.11.2",
         "phpstan/phpstan-strict-rules": "^0.11.1",
-        "thecodingmachine/phpstan-strict-rules": "^0.11.2"
+        "thecodingmachine/phpstan-strict-rules": "^0.11.2",
+        "vimeo/psalm": "^3.4.0"
     },
     "autoload-dev": {
         "psr-4": {
@@ -48,7 +49,7 @@
         "source": "https://github.com/narrowspark/coding-standard"
     },
     "require-dev": {
-        "symfony/var-exporter": "^4.3"
+        "symfony/var-exporter": "^4.3.0"
     },
     "scripts": {
         "build": "\\CreatePhpCsFixerList::build"
