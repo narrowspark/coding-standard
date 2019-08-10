@@ -57,6 +57,19 @@ $config->setCacheFile($cacheDir . '/.php_cs.cache');
 return $config;
 ```
 
+#### psalm
+
+Add your config with this command.
+
+```bash
+./vendor/bin/psalm --init
+```
+
+Then run Psalm
+```bash
+./vendor/bin/psalm
+```
+
 > **Info:**
 >
 > The used [php-cs-fixer rules](PHP-CS-Fixer-List.md).
@@ -108,6 +121,7 @@ Then edit your `composer.json` file and add these scripts:
   "scripts": {
     "cs": "php-cs-fixer fix",
     "phpstan": "phpstan analyse -c phpstan.neon -l 7 src --memory-limit=-1",
+    "psalm": "psalm",
      "changelog":  "changelog-generator generate --config=\".changelog\" --file --append"
   }
 }
