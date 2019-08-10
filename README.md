@@ -65,11 +65,6 @@ Add your config with this command.
 ./vendor/bin/psalm --init
 ```
 
-Then run Psalm
-```bash
-./vendor/bin/psalm
-```
-
 > **Info:**
 >
 > The used [php-cs-fixer rules](PHP-CS-Fixer-List.md).
@@ -124,6 +119,15 @@ Then edit your `composer.json` file and add these scripts:
     "psalm": "psalm",
      "changelog":  "changelog-generator generate --config=\".changelog\" --file --append"
   }
+}
+```
+
+> Tip: if some processes taking longer than the default composer `process-timeout: 300` you can add this to in your composer.json
+```jsonp
+{
+    "config": {
+        "process-timeout": 2000 #choose you need time
+    }
 }
 ```
 
