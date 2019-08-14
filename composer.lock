@@ -819,16 +819,16 @@
         },
         {
             "name": "narrowspark/php-cs-fixer-config",
-            "version": "4.0.0",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/narrowspark/php-cs-fixer-config.git",
-                "reference": "5645b25b22923007e5c0224e9b0327a69c646b47"
+                "reference": "ccdbe7c19050073552a73ecd3ffa484b39af2959"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/narrowspark/php-cs-fixer-config/zipball/5645b25b22923007e5c0224e9b0327a69c646b47",
-                "reference": "5645b25b22923007e5c0224e9b0327a69c646b47",
+                "url": "https://api.github.com/repos/narrowspark/php-cs-fixer-config/zipball/ccdbe7c19050073552a73ecd3ffa484b39af2959",
+                "reference": "ccdbe7c19050073552a73ecd3ffa484b39af2959",
                 "shasum": ""
             },
             "require": {
@@ -857,9 +857,9 @@
             "authors": [
                 {
                     "name": "Daniel Bannert",
+                    "role": "Developer",
                     "email": "d.bannert@anolilab.de",
-                    "homepage": "http://www.anolilab.de",
-                    "role": "Developer"
+                    "homepage": "http://www.anolilab.de"
                 }
             ],
             "description": "Provides a configuration for friendsofphp/php-cs-fixer, used within Narrowspark.",
@@ -871,7 +871,7 @@
                 "narrowspark",
                 "php-cs-fixer"
             ],
-            "time": "2019-07-10T12:48:49+00:00"
+            "time": "2019-08-13T07:42:48+00:00"
         },
         {
             "name": "netresearch/jsonmapper",
