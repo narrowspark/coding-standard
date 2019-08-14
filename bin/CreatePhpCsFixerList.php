@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-class CreatePhpCsFixerList
+final class CreatePhpCsFixerList
 {
     /**
      * Create the php cs fixer rules md file.
@@ -12,12 +12,15 @@ class CreatePhpCsFixerList
      */
     public static function build(): int
     {
-        $rules    = new \Narrowspark\CS\Config\Config();
+        $rules = (new \Narrowspark\CS\Config\Config())->getRules();
+
+        ksort($rules);
+
         $content  = '```php';
-        $content .= \Symfony\Component\VarExporter\VarExporter::export($rules->getRules());
+        $content .= \Symfony\Component\VarExporter\VarExporter::export($rules);
         $content .= '```';
 
-        $return = \file_put_contents(\dirname(__DIR__) . DIRECTORY_SEPARATOR . 'PHP-CS-Fixer-List.md', $content);
+        $return = \file_put_contents(\dirname(__DIR__) . DIRECTORY_SEPARATOR . 'PHP-CS-Fixer-Rules-List-PHP'.(\PHP_VERSION_ID >= 70300 ? '7.3.0' : '7.2.0').'.md', $content);
 
         return (int) $return;
     }

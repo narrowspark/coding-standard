@@ -1,7 +1,7 @@
 * text=auto
 *.php text eol=lf
 
-bin/           export-ignore
+bin/             export-ignore
 
 .changelog       export-ignore
 .editorconfig    export-ignore
@@ -9,3 +9,4 @@ bin/           export-ignore
 .gitignore       export-ignore
 .travis.yml      export-ignore
 README.md        export-ignore
+CONTRIBUTING.md  export-ignore

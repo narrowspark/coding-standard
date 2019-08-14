@@ -67,7 +67,9 @@ Add your config with this command.
 
 > **Info:**
 >
-> The used [php-cs-fixer rules](PHP-CS-Fixer-List.md).
+> The used [php-cs-fixer rules for php 7.2](PHP-CS-Fixer-Rules-List-PHP7.2.0.md).
+>
+> The used [php-cs-fixer rules for php 7.3](PHP-CS-Fixer-Rules-List-PHP7.3.0.md).
 >
 > For more information, take a look on [php-cs-fixer-config](https://github.com/narrowspark/php-cs-fixer-config).
 
