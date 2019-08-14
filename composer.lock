@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f2de879434132e83ec78df6fc38ef35",
+    "content-hash": "962fa912f3786702802a4fafc9e32617",
     "packages": [
         {
             "name": "amphp/amp",
@@ -777,63 +777,22 @@
             "time": "2019-07-25T16:52:47+00:00"
         },
         {
-            "name": "localheinz/php-cs-fixer-config",
-            "version": "1.22.1",
+            "name": "narrowspark/php-cs-fixer-config",
+            "version": "5.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/localheinz/php-cs-fixer-config.git",
-                "reference": "2178c6e51a960f43d460de21c8bafd000f7f21b8"
+                "url": "https://github.com/narrowspark/php-cs-fixer-config.git",
+                "reference": "74812f90a9170a9a335e28b0c933c70ea8ddc508"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/localheinz/php-cs-fixer-config/zipball/2178c6e51a960f43d460de21c8bafd000f7f21b8",
-                "reference": "2178c6e51a960f43d460de21c8bafd000f7f21b8",
+                "url": "https://api.github.com/repos/narrowspark/php-cs-fixer-config/zipball/74812f90a9170a9a335e28b0c933c70ea8ddc508",
+                "reference": "74812f90a9170a9a335e28b0c933c70ea8ddc508",
                 "shasum": ""
             },
             "require": {
                 "friendsofphp/php-cs-fixer": "~2.15.1",
-                "php": "^5.6 || ^7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.7.25"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Localheinz\\PhpCsFixer\\Config\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andreas Möller",
-                    "email": "am@localheinz.com"
-                }
-            ],
-            "description": "Provides a configuration factory and multiple rule sets for friendsofphp/php-cs-fixer.",
-            "homepage": "https://github.com/localheinz/php-cs-fixer-config",
-            "time": "2019-06-01T13:08:37+00:00"
-        },
-        {
-            "name": "narrowspark/php-cs-fixer-config",
-            "version": "4.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/narrowspark/php-cs-fixer-config.git",
-                "reference": "5645b25b22923007e5c0224e9b0327a69c646b47"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/narrowspark/php-cs-fixer-config/zipball/5645b25b22923007e5c0224e9b0327a69c646b47",
-                "reference": "5645b25b22923007e5c0224e9b0327a69c646b47",
-                "shasum": ""
-            },
-            "require": {
                 "kubawerlos/php-cs-fixer-custom-fixers": "^1.13.0",
-                "localheinz/php-cs-fixer-config": "1.22.*",
                 "pedrotroller/php-cs-custom-fixer": "^2.18.1",
                 "php": "^7.1"
             },
@@ -857,12 +816,12 @@
             "authors": [
                 {
                     "name": "Daniel Bannert",
+                    "role": "Developer",
                     "email": "d.bannert@anolilab.de",
-                    "homepage": "http://www.anolilab.de",
-                    "role": "Developer"
+                    "homepage": "http://www.anolilab.de"
                 }
             ],
-            "description": "Provides a configuration for friendsofphp/php-cs-fixer, used within Narrowspark.",
+            "description": "Provides a configuration for friendsofphp/php-cs-fixer, used within Narrowspark and Anolilab.",
             "homepage": "https://github.com/narrowspark/php-cs-fixer-config",
             "keywords": [
                 "config",
@@ -871,7 +830,7 @@
                 "narrowspark",
                 "php-cs-fixer"
             ],
-            "time": "2019-07-10T12:48:49+00:00"
+            "time": "2019-08-14T12:09:17+00:00"
         },
         {
             "name": "netresearch/jsonmapper",
@@ -1440,16 +1399,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.2.2",
+            "version": "v4.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "1bd73cc04c3843ad8d6b0bfc0956026a151fc420"
+                "reference": "e612609022e935f3d0337c1295176505b41188c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/1bd73cc04c3843ad8d6b0bfc0956026a151fc420",
-                "reference": "1bd73cc04c3843ad8d6b0bfc0956026a151fc420",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/e612609022e935f3d0337c1295176505b41188c8",
+                "reference": "e612609022e935f3d0337c1295176505b41188c8",
                 "shasum": ""
             },
             "require": {
@@ -1457,7 +1416,7 @@
                 "php": ">=7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.5 || ^7.0"
+                "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0"
             },
             "bin": [
                 "bin/php-parse"
@@ -1487,38 +1446,39 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-05-25T20:07:01+00:00"
+            "time": "2019-08-12T20:17:41+00:00"
         },
         {
             "name": "ocramius/package-versions",
-            "version": "1.4.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ocramius/PackageVersions.git",
-                "reference": "a4d4b60d0e60da2487bd21a2c6ac089f85570dbb"
+                "reference": "1d32342b8c1eb27353c8887c366147b4c2da673c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ocramius/PackageVersions/zipball/a4d4b60d0e60da2487bd21a2c6ac089f85570dbb",
-                "reference": "a4d4b60d0e60da2487bd21a2c6ac089f85570dbb",
+                "url": "https://api.github.com/repos/Ocramius/PackageVersions/zipball/1d32342b8c1eb27353c8887c366147b4c2da673c",
+                "reference": "1d32342b8c1eb27353c8887c366147b4c2da673c",
                 "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^1.0.0",
-                "php": "^7.1.0"
+                "php": "^7.3.0"
             },
             "require-dev": {
-                "composer/composer": "^1.6.3",
-                "doctrine/coding-standard": "^5.0.1",
+                "composer/composer": "^1.8.6",
+                "doctrine/coding-standard": "^6.0.0",
                 "ext-zip": "*",
-                "infection/infection": "^0.7.1",
-                "phpunit/phpunit": "^7.0.0"
+                "infection/infection": "^0.13.4",
+                "phpunit/phpunit": "^8.2.5",
+                "vimeo/psalm": "^3.4.9"
             },
             "type": "composer-plugin",
             "extra": {
                 "class": "PackageVersions\\Installer",
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "1.6.x-dev"
                 }
             },
             "autoload": {
@@ -1537,7 +1497,7 @@
                 }
             ],
             "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
-            "time": "2019-02-21T12:16:21+00:00"
+            "time": "2019-07-17T15:49:50+00:00"
         },
         {
             "name": "openlss/lib-array2xml",
