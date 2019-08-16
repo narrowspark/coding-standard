@@ -2422,16 +2422,16 @@
         },
         {
             "name": "phpstan/phpstan-mockery",
-            "version": "0.11.2",
+            "version": "0.11.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-mockery.git",
-                "reference": "5aee3dca91c1ef2f100d06e543e8647acacd7344"
+                "reference": "8f3f0dc0bbc8c413224459a25f89a2cef5924871"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-mockery/zipball/5aee3dca91c1ef2f100d06e543e8647acacd7344",
-                "reference": "5aee3dca91c1ef2f100d06e543e8647acacd7344",
+                "url": "https://api.github.com/repos/phpstan/phpstan-mockery/zipball/8f3f0dc0bbc8c413224459a25f89a2cef5924871",
+                "reference": "8f3f0dc0bbc8c413224459a25f89a2cef5924871",
                 "shasum": ""
             },
             "require": {
@@ -2472,7 +2472,7 @@
                 "MIT"
             ],
             "description": "PHPStan Mockery extension",
-            "time": "2019-07-19T21:01:40+00:00"
+            "time": "2019-08-15T06:50:55+00:00"
         },
         {
             "name": "phpstan/phpstan-phpunit",
