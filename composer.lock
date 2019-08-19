@@ -1635,16 +1635,16 @@
         },
         {
             "name": "pepakriz/phpstan-exception-rules",
-            "version": "v0.8.2",
+            "version": "v0.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pepakriz/phpstan-exception-rules.git",
-                "reference": "421a6ffe113cab1291244d7eeda1b1ee234220b6"
+                "reference": "db16cb7b14e637cec8844b7d870727132fecc5ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pepakriz/phpstan-exception-rules/zipball/421a6ffe113cab1291244d7eeda1b1ee234220b6",
-                "reference": "421a6ffe113cab1291244d7eeda1b1ee234220b6",
+                "url": "https://api.github.com/repos/pepakriz/phpstan-exception-rules/zipball/db16cb7b14e637cec8844b7d870727132fecc5ec",
+                "reference": "db16cb7b14e637cec8844b7d870727132fecc5ec",
                 "shasum": ""
             },
             "require": {
@@ -1656,6 +1656,7 @@
                 "jakub-onderka/php-console-highlighter": "0.4.0",
                 "jakub-onderka/php-parallel-lint": "1.0.0",
                 "php-coveralls/php-coveralls": "^2.1",
+                "phpstan/phpstan": "^0.11.13",
                 "phpstan/phpstan-nette": "^0.11",
                 "phpstan/phpstan-phpunit": "^0.11",
                 "phpstan/phpstan-strict-rules": "^0.11",
@@ -1684,7 +1685,7 @@
                 "MIT"
             ],
             "description": "Exception rules for PHPStan",
-            "time": "2019-05-25T06:44:05+00:00"
+            "time": "2019-08-17T10:24:29+00:00"
         },
         {
             "name": "php-cs-fixer/diff",
