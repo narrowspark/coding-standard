@@ -12,24 +12,44 @@ Use
 ------------
 #### PHPstan
 
-Create a configuration file `phpstan.neon` 
+Create a configuration file `phpstan.neon`
 
 Add these rules or use `composer require --dev phpstan/extension-installer`.
 
+The `base_rules.neon` can be used on the `phpstan.neon`, is has some disabled symfony rules.
+
 ```neon
 includes:
-    - vendor/pepakriz/phpstan-exception-rules/extension.neon
-    - vendor/phpstan/phpstan-deprecation-rules/rules.neon
-    - vendor/phpstan/phpstan-phpunit/extension.neon
-    - vendor/phpstan/phpstan-mockery/extension.neon
-    - vendor/phpstan/phpstan-phpunit/rules.neon
-    - vendor/phpstan/phpstan-mockery/extension.neon
-    - vendor/phpstan/phpstan-strict-rules/rules.neon
-    - vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
+    - vendor/narrowspark/coding-standard/extension.neon
 ```
+
+or you will do it like this
+
+```neon
+includes:
+    - vendor/ekino/phpstan-banned-code/extension.neon
+    - vendor/phpstan/phpstan-deprecation-rules/rules.neon
+    - vendor/phpstan/phpstan-mockery/base_rules.neon
+    - vendor/phpstan/phpstan-phpunit/base_rules.neon
+    - vendor/phpstan/phpstan-phpunit/rules.neon
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    - vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
+
+parameters:
+    level: max
+    inferPrivatePropertyTypeFromConstructor: true
+
+    excludes_analyse:
+        - vendor
+
+    # enable detection of `use Tests\Foo\Bar` in a non-test file
+    use_from_tests: true
+```
+
 Follow the links to check, how to configure some of the rules:
-- https://github.com/pepakriz/phpstan-exception-rules
 - https://github.com/phpstan/phpstan-strict-rules
+- https://github.com/ekino/phpstan-banned-code
 
 #### PHP-CS-Fixer
 

@@ -1,0 +1,46 @@
+includes:
+    - ../../ekino/phpstan-banned-code/extension.neon
+    - ../../phpstan/phpstan-deprecation-rules/rules.neon
+    - ../../phpstan/phpstan-mockery/base_rules.neon
+    - ../../phpstan/phpstan-phpunit/base_rules.neon
+    - ../../phpstan/phpstan-phpunit/rules.neon
+    - ../../phpstan/phpstan-strict-rules/rules.neon
+    - ../../phpstan/phpstan/conf/bleedingEdge.neon
+    - ../../thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
+
+services:
+    -
+        class: SlamPhpStan\ClassNotationRule
+        tags:
+            - phpstan.rules.rule
+    -
+        class: SlamPhpStan\GotoRule
+        tags:
+            - phpstan.rules.rule
+    -
+        class: SlamPhpStan\PhpUnitFqcnAnnotationRule
+        tags:
+            - phpstan.rules.rule
+    -
+        class: SlamPhpStan\StringToClassRule
+        tags:
+            - phpstan.rules.rule
+    -
+        class: SlamPhpStan\UnusedVariableRule
+        tags:
+            - phpstan.rules.rule
+    -
+        class: SlamPhpStan\MissingClosureParameterTypehintRule
+        tags:
+            - phpstan.rules.rule
+
+parameters:
+    level: max
+    inferPrivatePropertyTypeFromConstructor: true
+
+    excludes_analyse:
+        - vendor
+        - Tests/Fixture
+
+    # enable detection of `use Tests\Foo\Bar` in a non-test file
+    use_from_tests: true
