@@ -1,15 +1,6 @@
 name: "PHPStan neon file check"
 
-on:
-    push:
-        paths:
-            - "**.neon"
-            - "**.json"
-    pull_request:
-        paths:
-            - "**.neon"
-            - "**.json"
-
+on: [push, pull_request]
 
 jobs:
     php-cs-fixer:
