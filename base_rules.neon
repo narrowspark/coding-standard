@@ -1,12 +1,13 @@
 includes:
-    - ../../ekino/phpstan-banned-code/extension.neon
-    - ../../phpstan/phpstan-deprecation-rules/rules.neon
-    - ../../phpstan/phpstan-mockery/base_rules.neon
-    - ../../phpstan/phpstan-phpunit/base_rules.neon
-    - ../../phpstan/phpstan-phpunit/rules.neon
-    - ../../phpstan/phpstan-strict-rules/rules.neon
-    - ../../phpstan/phpstan/conf/bleedingEdge.neon
-    - ../../thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
+    # needs to be removed after https://github.com/ekino/phpstan-banned-code/pull/23
+    - phpstan-banned-code.tmp.neon
+    - %rootDir%/../../phpstan/phpstan-deprecation-rules/rules.neon
+    - %rootDir%/../../phpstan/phpstan-mockery/extension.neon
+    - %rootDir%/../../phpstan/phpstan-phpunit/extension.neon
+    - %rootDir%/../../phpstan/phpstan-phpunit/rules.neon
+    - %rootDir%/../../phpstan/phpstan-strict-rules/rules.neon
+    - %rootDir%/../../phpstan/phpstan/conf/bleedingEdge.neon
+    - %rootDir%/../../thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
 
 services:
     -
@@ -42,5 +43,6 @@ parameters:
         - vendor
         - Tests/Fixture
 
-    # enable detection of `use Tests\Foo\Bar` in a non-test file
-    use_from_tests: true
+    banned_code:
+        # enable detection of `use Tests\Foo\Bar` in a non-test file
+        use_from_tests: true

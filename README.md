@@ -29,8 +29,8 @@ or you will do it like this
 includes:
     - vendor/ekino/phpstan-banned-code/extension.neon
     - vendor/phpstan/phpstan-deprecation-rules/rules.neon
-    - vendor/phpstan/phpstan-mockery/base_rules.neon
-    - vendor/phpstan/phpstan-phpunit/base_rules.neon
+    - vendor/phpstan/phpstan-mockery/extension.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
     - vendor/phpstan/phpstan-phpunit/rules.neon
     - vendor/phpstan/phpstan-strict-rules/rules.neon
     - vendor/phpstan/phpstan/conf/bleedingEdge.neon
@@ -43,8 +43,9 @@ parameters:
     excludes_analyse:
         - vendor
 
-    # enable detection of `use Tests\Foo\Bar` in a non-test file
-    use_from_tests: true
+    banned_code:
+        # enable detection of `use Tests\Foo\Bar` in a non-test file
+        use_from_tests: true
 ```
 
 Follow the links to check, how to configure some of the rules:
