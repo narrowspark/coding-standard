@@ -42,6 +42,10 @@ parameters:
 
     excludes_analyse:
         - vendor
+
+    banned_code:
+        # enable detection of `use Tests\Foo\Bar` in a non-test file
+        use_from_tests: true
 ```
 
 Follow the links to check, how to configure some of the rules:
