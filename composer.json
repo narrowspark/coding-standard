@@ -24,7 +24,7 @@
     "require": {
         "php": "^7.2",
         "ekino/phpstan-banned-code": "^0.3.1",
-        "felixfbecker/advanced-json-rpc": "^3.0.4",
+        "felixfbecker/advanced-json-rpc": "^3.1.0",
         "jwage/changelog-generator": "^1.2.0",
         "narrowspark/php-cs-fixer-config": "~5.3.0",
         "phpstan/phpstan": "^0.12.9",
