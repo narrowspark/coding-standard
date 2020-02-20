@@ -1,6 +1,5 @@
 includes:
-    # needs to be removed after https://github.com/ekino/phpstan-banned-code/pull/23
-    - phpstan-banned-code.tmp.neon
+    - %rootDir%/../../ekino/phpstan-banned-code/extension.neon
     - %rootDir%/../../phpstan/phpstan-deprecation-rules/rules.neon
     - %rootDir%/../../phpstan/phpstan-mockery/extension.neon
     - %rootDir%/../../phpstan/phpstan-phpunit/extension.neon
@@ -8,32 +7,7 @@ includes:
     - %rootDir%/../../phpstan/phpstan-strict-rules/rules.neon
     - %rootDir%/../../phpstan/phpstan/conf/bleedingEdge.neon
     - %rootDir%/../../thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
-
-services:
-    -
-        class: SlamPhpStan\ClassNotationRule
-        tags:
-            - phpstan.rules.rule
-    -
-        class: SlamPhpStan\GotoRule
-        tags:
-            - phpstan.rules.rule
-    -
-        class: SlamPhpStan\PhpUnitFqcnAnnotationRule
-        tags:
-            - phpstan.rules.rule
-    -
-        class: SlamPhpStan\StringToClassRule
-        tags:
-            - phpstan.rules.rule
-    -
-        class: SlamPhpStan\UnusedVariableRule
-        tags:
-            - phpstan.rules.rule
-    -
-        class: SlamPhpStan\MissingClosureParameterTypehintRule
-        tags:
-            - phpstan.rules.rule
+    - %rootDir%/../../slam/phpstan-extensions/conf/slam-rules.neon
 
 parameters:
     level: max
