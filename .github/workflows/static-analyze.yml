@@ -2,13 +2,7 @@
 
 name: "Static analyzing"
 
-on:
-  push:
-    paths:
-      - "**.php"
-  pull_request:
-    paths:
-      - "**.php"
+on: ["pull_request", "push"]
 
 jobs:
   narrowspark-phpstan-static-analysis:
