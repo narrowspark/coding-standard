@@ -93,7 +93,7 @@ Add your config with this command.
 ./vendor/bin/psalm --init
 ```
 #### Infection
-The first time you run Infection for your project, it will ask you several questions to create a config file `infection.json.dist`
+The first time you run Infection for your project, it will ask you questions to create a config file `infection.json.dist`
 
 #### Changelog
 
