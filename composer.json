@@ -25,6 +25,7 @@
         "php": "^7.2",
         "ekino/phpstan-banned-code": "~0.3.1",
         "felixfbecker/advanced-json-rpc": "^3.1.0",
+        "infection/infection": "~0.15.0",
         "jwage/changelog-generator": "~1.2.0",
         "narrowspark/php-cs-fixer-config": "~6.0.0",
         "phpstan/phpstan": "~0.12.11",

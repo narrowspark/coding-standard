@@ -14,16 +14,16 @@ Use
 
 Create a configuration file `phpstan.neon`
 
-Add these rules or use `composer require --dev phpstan/extension-installer`.
+Add the rules manually or use `composer require --dev phpstan/extension-installer`.
 
-The `base_rules.neon` can be used on the `phpstan.neon`, is has some disabled symfony rules.
+If you don’t want to use `phpstan/extension-installer`, include extension.neon in your project’s PHPStan config:
 
 ```neon
 includes:
-    - vendor/narrowspark/coding-standard/extension.neon
+    - vendor/narrowspark/coding-standard/base_rules.neon
 ```
 
-or you will do it like this
+Or
 
 ```neon
 includes:
@@ -35,6 +35,7 @@ includes:
     - vendor/phpstan/phpstan-strict-rules/rules.neon
     - vendor/phpstan/phpstan/conf/bleedingEdge.neon
     - vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
+    - vendor/slam/phpstan-extensions/conf/slam-rules.neon
 
 parameters:
     level: max
@@ -48,7 +49,7 @@ parameters:
         use_from_tests: true
 ```
 
-Follow the links to check, how to configure some of the rules:
+Follow the links to check, how to configure the rules:
 - https://github.com/phpstan/phpstan-strict-rules
 - https://github.com/ekino/phpstan-banned-code
 
@@ -78,21 +79,21 @@ $config->setCacheFile($cacheDir . '/.php_cs.cache');
 return $config;
 ```
 
-#### psalm
+> **Info:**
+>
+> The used [php-cs-fixer rules](PHP-CS-Fixer-Rules-List.md).
+>
+> For more information, take a look on [php-cs-fixer-config](https://github.com/narrowspark/php-cs-fixer-config).
+
+#### Psalm
 
 Add your config with this command.
 
 ```bash
 ./vendor/bin/psalm --init
 ```
-
-> **Info:**
->
-> The used [php-cs-fixer rules for php 7.2](PHP-CS-Fixer-Rules-List-PHP7.2.0.md).
->
-> The used [php-cs-fixer rules for php 7.3](PHP-CS-Fixer-Rules-List-PHP7.3.0.md).
->
-> For more information, take a look on [php-cs-fixer-config](https://github.com/narrowspark/php-cs-fixer-config).
+#### Infection
+The first time you run Infection for your project, it will ask you several questions to create a config file `infection.json.dist`
 
 #### Changelog
 
@@ -128,7 +129,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ```
 
 > **Info:**
-> For more information, take a look on [keepachangelog](https://keepachangelog.com/en/1.0.0/).
+> for more information, take a look on [keepachangelog](https://keepachangelog.com/en/1.0.0/).
 
 #### Composer
 
@@ -158,7 +159,7 @@ Add `.php_cs.cache` to your `.gitignore` file.
 
 Versioning
 ------------
-This library follows semantic versioning, and additions to the code ruleset are only performed in major releases.
+This library follows [semantic versioning](https://semver.org/), and additions to the code ruleset are performed in major releases.
 
 Testing
 ------------
@@ -170,11 +171,11 @@ composer test
 Contributing
 ------------
 
-If you would like to help take a look at the [list of issues](http://github.com/narrowspark/coding-standard/issues) and check our [Contributing](CONTRIBUTING.md) guild.
+If you would like to help take a look at the [list of issues](https://github.com/narrowspark/coding-standard/issues) and check our [CONTRIBUTING.md](.github/CONTRIBUTING.md) guide.
 
-> **Note:** Please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.
+> **Note:** please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.
 
 License
 ---------------
 
-The Narrowspark Coding Standard is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+The Narrowspark Coding Standard is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT)
