@@ -9,6 +9,7 @@
         "config",
         "php-cs-fixer",
         "phpstan",
+        "psalm",
         "coding-standard"
     ],
     "homepage": "https://github.com/narrowspark/coding-standard",
@@ -35,6 +36,8 @@
         "phpstan/phpstan-strict-rules": "~0.12.2",
         "slam/phpstan-extensions": "~5.0.0",
         "thecodingmachine/phpstan-strict-rules": "~0.12.0",
+        "psalm/plugin-phpunit": "~0.8.0 || ~0.9.0",
+        "psalm/plugin-mockery": "~0.3.0",
         "vimeo/psalm": "^3.9.3"
     },
     "require-dev": {

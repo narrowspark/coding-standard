@@ -92,6 +92,20 @@ Add your config with this command.
 ```bash
 ./vendor/bin/psalm --init
 ```
+
+Now you need to add the `phpunit` and `mockery` plugin to the created `psalm.xml`
+
+```diff
+...
+
++<plugins>
++  <pluginClass class="Psalm\MockeryPlugin\Plugin" />
++  <pluginClass class="Psalm\PhpUnitPlugin\Plugin" />
++</plugins>
+
+...
+```
+
 #### Infection
 The first time you run Infection for your project, it will ask you questions to create a config file `infection.json.dist`
 
