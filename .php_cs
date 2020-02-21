@@ -18,11 +18,6 @@ $license = License\Type\MIT::markdown(
 $license->save();
 
 $config = new Config($license->header(), [
-    'native_function_invocation' => [
-        'include' => ['@compiler_optimized'],
-        'scope' => 'namespaced',
-        'strict' => true,
-    ],
     // @todo waiting for php-cs-fixer 2.16.2
     'global_namespace_import' => [
         'import_classes' => true,
