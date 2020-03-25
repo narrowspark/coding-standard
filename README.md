@@ -59,10 +59,25 @@ Create a configuration file `.php_cs` in the root of your project with this cont
 
 ```php
 <?php
+
 declare(strict_types=1);
+
+use Ergebnis\License;
 use Narrowspark\CS\Config\Config;
 
-$config = new Config();
+$license = License\Type\MIT::markdown(
+    __DIR__ . '/LICENSE.md',
+    License\Range::since(
+        License\Year::fromString('2020'),
+        new \DateTimeZone('UTC')
+    ),
+    License\Holder::fromString('Daniel Bannert'),
+    License\Url::fromString('https://github.com/{name}/{repo}')
+);
+
+$license->save();
+
+$config = new Config($license->header());
 $config->getFinder()
     ->files()
     ->in(__DIR__ . DIRECTORY_SEPARATOR . 'src')
@@ -145,6 +160,65 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 > **Info:**
 > for more information, take a look on [keepachangelog](https://keepachangelog.com/en/1.0.0/).
 
+#### Rector
+
+Create `rector-src.yaml` and add the configurations to it.
+
+```yaml
+imports:
+    - { resource: './vendor/thecodingmachine/safe/rector-migrate-0.6.yml' }
+
+parameters:
+    php_version_features: '7.2' # change the php version to your used one
+
+    project_type: "open-source"
+
+    sets:
+        - 'action-injection-to-constructor-injection'
+        - 'array-str-functions-to-static-call'
+        - 'celebrity'
+        - 'doctrine'
+        - 'phpstan'
+        - 'solid'
+        - 'early-return'
+        - 'doctrine-code-quality'
+        - 'dead-code'
+        - 'code-quality'
+        - 'type-declaration'
+        - 'php71'
+        - 'php72'
+#        - 'php73'
+#        - 'php74'
+```
+
+Create `rector-tests.yaml` and add the configurations to it.
+
+```yaml
+parameters:
+    php_version_features: '7.2' # change the php version to your used one
+
+    sets:
+        - 'celebrity'
+        - 'phpstan'
+        - 'phpunit-code-quality'
+        - 'phpunit-exception'
+        - 'phpunit-injector'
+        - 'phpunit-specific-method'
+        - 'early-return'
+        - 'dead-code'
+        - 'code-quality'
+        - 'type-declaration'
+        - 'php71'
+        - 'php72'
+#        - 'php73'
+#        - 'php74'
+
+```
+
+> **Info:**
+> for more information about existing sets and setting options, take a look on [rectorphp docs](https://github.com/rectorphp/rector/blob/master/docs/AllRectorsOverview.md).
+
+
 #### Composer
 
 Then edit your `composer.json` file and add these scripts:
@@ -152,10 +226,17 @@ Then edit your `composer.json` file and add these scripts:
 ```json
 {
   "scripts": {
-    "cs": "php-cs-fixer fix",
-    "phpstan": "phpstan analyse -c phpstan.neon -l 7 src --memory-limit=-1",
-    "psalm": "psalm",
-     "changelog":  "changelog-generator generate --config=\".changelog\" --file --append"
+    "changelog": "changelog-generator generate --config=\"./.changelog\" --file --prepend",
+    "cs": "php-cs-fixer fix --config=\"./.php_cs\" --ansi",
+    "cs:check": "php-cs-fixer fix --config=\"./.php_cs\" --ansi --dry-run",
+    "phpstan": "phpstan analyse -c ./phpstan.neon --ansi",
+    "psalm": "psalm --threads=$(nproc)",
+    "psalm:fix": "psalm --alter --issues=all --threads=$(nproc) --ansi",
+    "infection": "infection --configuration=\"./infection.json\" -j$(nproc) --ansi",
+    "rector-src": "rector process ./src/ --config=./rector-src.yaml --ansi --dry-run",
+    "rector-src:fix": "rector process ./src/ --config=./rector-src.yaml --ansi",
+    "rector-tests": "rector process ./tests/ --config=./rector-tests.yaml --ansi --dry-run",
+    "rector-tests:fix": "rector process ./tests/ --config=./rector-tests.yaml --ansi"
   }
 }
 ```
@@ -164,7 +245,7 @@ Then edit your `composer.json` file and add these scripts:
 ```jsonp
 {
     "config": {
-        "process-timeout": 2000 #choose you need time
+        "process-timeout": 2000 #choose you needed time
     }
 }
 ```
