@@ -96,7 +96,7 @@ return $config;
 
 > **Info:**
 >
-> The used [php-cs-fixer rules](PHP-CS-Fixer-Rules-List.md).
+> The used [php-cs-fixer rules](docs/PHP-CS-Fixer-Rules-List.md).
 >
 > For more information, take a look on [php-cs-fixer-config](https://github.com/narrowspark/php-cs-fixer-config).
 

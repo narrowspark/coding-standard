@@ -8,7 +8,7 @@ declare(strict_types=1);
  * For the full copyright and license information, please view
  * the LICENSE.md file that was distributed with this source code.
  *
- * @see https://github.com/narrowspark/php-library-template
+ * @see https://github.com/narrowspark/coding-standard
  */
 
 use Narrowspark\CS\Config\Config;
@@ -31,7 +31,8 @@ final class CreatePhpCsFixerList
         $content .= VarExporter::export($rules);
         $content .= '```';
 
-        $return = file_put_contents(dirname(__DIR__) . \DIRECTORY_SEPARATOR . 'PHP-CS-Fixer-Rules-List.md', $content);
+        $dir = dirname(__DIR__) . \DIRECTORY_SEPARATOR . 'docs';
+        $return = file_put_contents($dir . \DIRECTORY_SEPARATOR . 'PHP-CS-Fixer-Rules-List.md', $content);
 
         return (int) $return;
     }
