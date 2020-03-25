@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        php-versions: ["7.4.2"]
+        php-versions: ["7.3"]
 
     env:
       key: "license-update-linux-v1" # change key (version) to clear cache
@@ -90,11 +90,11 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
           restore-keys: ${{ runner.os }}-composer-
 
-      - name: "Install highest .build dependencies"
+      - name: "Install highest dependencies"
         run: $COMPOSER_UP
 
       - name: "Run friendsofphp/php-cs-fixer"
-        run: ./vendor/bin/php-cs-fixer fix --dry-run --diff --diff-format=udiff --verbose
+        run: composer cs:check -- --diff --diff-format=udiff --verbose
 
       - name: "Open pull request updating license year"
         uses: gr2m/create-or-update-pull-request-action@v1.2.9

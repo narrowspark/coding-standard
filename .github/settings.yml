@@ -102,4 +102,4 @@ repository:
 
   # https://developer.github.com/v3/repos/branches/#remove-branch-protection
 
-  topics: "php, library, coding-standard, php-cs-fixer, phpstan, psalm, changelog, narrowspark"
+  topics: "php, library, coding-standard, php-cs-fixer, phpstan, psalm, changelog, narrowspark, rector"

@@ -24,7 +24,7 @@
         }
     ],
     "require": {
-        "php": "^7.2",
+        "php": "^7.3",
         "ekino/phpstan-banned-code": "~0.3.1",
         "felixfbecker/advanced-json-rpc": "^3.1.1",
         "infection/infection": "~0.15.3",
@@ -62,7 +62,10 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "build": "\\CreatePhpCsFixerList::build"
+        "build": "\\CreatePhpCsFixerList::build",
+        "changelog": "changelog-generator generate --config=\"./.changelog\" --file --prepend",
+        "cs": "php-cs-fixer fix --config=\"./.php_cs\" --ansi",
+        "cs:check": "php-cs-fixer fix --config=\"./.php_cs\" --ansi --dry-run"
     },
     "support": {
         "issues": "https://github.com/narrowspark/coding-standard/issues",
