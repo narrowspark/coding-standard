@@ -1,3 +1,20 @@
+v5.0.0
+======
+
+- Total issues resolved: **1**
+- Total pull requests resolved: **1**
+- Total contributors: **1**
+
+Added
+-----
+
+ - [62: feat : added cs with license update, added changelog](https://github.com/narrowspark/coding-standard/pull/62) thanks to @prisis
+
+Changed
+-------
+
+ - [63: Upgrade php to v7.3](https://github.com/narrowspark/coding-standard/issues/63) thanks to @prisis
+
 v4.1.0
 ======
 
