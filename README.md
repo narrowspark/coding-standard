@@ -164,7 +164,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 Create 2 files `rector-src.yaml` and `rector-tests.yaml` to add the configurations to it.
 
-##### reactor-src.yaml
+##### rector-src.yaml
 
 ```yaml
 imports:
@@ -193,7 +193,7 @@ parameters:
 #        - 'php74'
 ```
 
-##### reactor-tests.yaml
+##### rector-tests.yaml
 
 ```yaml
 parameters:
