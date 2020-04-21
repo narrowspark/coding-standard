@@ -1,3 +1,35 @@
+v5.1.0
+======
+
+- Total issues resolved: **0**
+- Total pull requests resolved: **21**
+- Total contributors: **1**
+
+Changed
+-------
+
+ - [91: Build(deps): Update phpstan/phpstan requirement from ~0.12.18 to ~0.12.19](https://github.com/narrowspark/coding-standard/pull/91) thanks to @dependabot-preview[bot]
+ - [90: Build(deps): Update phpstan/phpstan-phpunit requirement from ~0.12.7 to ~0.12.8](https://github.com/narrowspark/coding-standard/pull/90) thanks to @dependabot-preview[bot]
+ - [89: Build(deps-dev): Update phpunit/phpunit requirement from ^9.1.1 to ^9.1.2](https://github.com/narrowspark/coding-standard/pull/89) thanks to @dependabot-preview[bot]
+ - [88: Build(deps): Update rector/rector requirement from ~0.7.11 to ~0.7.12](https://github.com/narrowspark/coding-standard/pull/88) thanks to @dependabot-preview[bot]
+ - [87: Build(deps): Update phpstan/phpstan-phpunit requirement from ~0.12.6 to ~0.12.7](https://github.com/narrowspark/coding-standard/pull/87) thanks to @dependabot-preview[bot]
+ - [86: Build(deps): Update vimeo/psalm requirement from ^3.11.1 to ^3.11.2](https://github.com/narrowspark/coding-standard/pull/86) thanks to @dependabot-preview[bot]
+ - [85: Build(deps): Update vimeo/psalm requirement from ^3.10.1 to ^3.11.1](https://github.com/narrowspark/coding-standard/pull/85) thanks to @dependabot-preview[bot]
+ - [84: Build(deps): Update rector/rector requirement from ~0.7.7 to ~0.7.11](https://github.com/narrowspark/coding-standard/pull/84) thanks to @dependabot-preview[bot]
+ - [83: Build(deps): Update infection/infection requirement from ~0.16.1 to ~0.16.2](https://github.com/narrowspark/coding-standard/pull/83) thanks to @dependabot-preview[bot]
+ - [81: Build(deps): Update phpstan/phpstan-mockery requirement from ~0.12.3 to ~0.12.4](https://github.com/narrowspark/coding-standard/pull/81) thanks to @dependabot-preview[bot]
+ - [80: Build(deps-dev): Update phpunit/phpunit requirement from ^9.1.0 to ^9.1.1](https://github.com/narrowspark/coding-standard/pull/80) thanks to @dependabot-preview[bot]
+ - [79: Build(deps): Update psalm/plugin-phpunit requirement from ^0.9.2 to ^0.10.0](https://github.com/narrowspark/coding-standard/pull/79) thanks to @dependabot-preview[bot]
+ - [78: Build(deps-dev): Update phpunit/phpunit requirement from ^9.0.2 to ^9.1.0](https://github.com/narrowspark/coding-standard/pull/78) thanks to @dependabot-preview[bot]
+ - [77: Build(deps): Update psalm/plugin-phpunit requirement from ^0.9.1 to ^0.9.2](https://github.com/narrowspark/coding-standard/pull/77) thanks to @dependabot-preview[bot]
+ - [76: Build(deps-dev): Update phpunit/phpunit requirement from ^8.0.0 || ^9.0.0 to ^9.0.2](https://github.com/narrowspark/coding-standard/pull/76) thanks to @dependabot-preview[bot]
+ - [75: Build(deps): Update infection/infection requirement from ~0.15.3 to ~0.16.1](https://github.com/narrowspark/coding-standard/pull/75) thanks to @dependabot-preview[bot]
+ - [74: Build(deps): Update rector/rector requirement from ~0.7.0 to ~0.7.7](https://github.com/narrowspark/coding-standard/pull/74) thanks to @dependabot-preview[bot]
+ - [73: Build(deps): Update narrowspark/php-cs-fixer-config requirement from ~6.0.0 to ~6.1.0](https://github.com/narrowspark/coding-standard/pull/73) thanks to @dependabot-preview[bot]
+ - [72: Build(deps): Update psalm/plugin-phpunit requirement from ~0.8.0 || ~0.9.0 to ^0.9.1](https://github.com/narrowspark/coding-standard/pull/72) thanks to @dependabot-preview[bot]
+ - [71: Build(deps-dev): Update symfony/var-exporter requirement from ^5.0.6 to ^5.0.7](https://github.com/narrowspark/coding-standard/pull/71) thanks to @dependabot-preview[bot]
+ - [70: Build(deps-dev): Update symfony/var-exporter requirement from ^5.0.5 to ^5.0.6](https://github.com/narrowspark/coding-standard/pull/70) thanks to @dependabot-preview[bot]
+
 v5.0.0
 ======
 
