@@ -166,7 +166,7 @@ Create `rector-src.yaml` and add the configurations to it.
 
 ```yaml
 imports:
-    - { resource: './vendor/thecodingmachine/safe/rector-migrate-0.6.yml' }
+    - { resource: './vendor/thecodingmachine/safe/rector-migrate-0.7.yml' }
 
 parameters:
     php_version_features: '7.2' # change the php version to your used one
