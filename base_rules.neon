@@ -1,5 +1,4 @@
 includes:
-    - %rootDir%/../../ekino/phpstan-banned-code/extension.neon
     - %rootDir%/../../phpstan/phpstan-deprecation-rules/rules.neon
     - %rootDir%/../../phpstan/phpstan-mockery/extension.neon
     - %rootDir%/../../phpstan/phpstan-phpunit/extension.neon
@@ -8,6 +7,14 @@ includes:
     - %rootDir%/../../phpstan/phpstan/conf/bleedingEdge.neon
     - %rootDir%/../../thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
     - %rootDir%/../../slam/phpstan-extensions/conf/slam-rules.neon
+    - %rootDir%/../../symplify/phpstan-rules/config/services/services.neon
+    - %rootDir%/../../symplify/phpstan-rules/config/code-complexity-rules.neon
+    - %rootDir%/../../symplify/phpstan-rules/config/forbidden-static-rules.neon
+    - %rootDir%/../../symplify/phpstan-rules/config/generic-rules.neon
+    - %rootDir%/../../symplify/phpstan-rules/config/naming-rules.neon
+    - %rootDir%/../../symplify/phpstan-rules/config/regex-rules.neon
+    - %rootDir%/../../symplify/phpstan-rules/config/size-rules.neon
+    - %rootDir%/../../symplify/phpstan-rules/config/test-rules.neon
 
 parameters:
     level: max
@@ -16,7 +23,3 @@ parameters:
     excludes_analyse:
         - vendor
         - Tests/Fixture
-
-    banned_code:
-        # enable detection of `use Tests\Foo\Bar` in a non-test file
-        use_from_tests: true

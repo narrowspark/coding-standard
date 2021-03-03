@@ -1,6 +1,6 @@
 | Q             | A
 | ------------- | ---
-| Branch?       | master   <!-- for features -->
+| Branch?       | main     <!-- for features -->
 | Bug fix?      | yes/no
 | New feature?  | yes/no   <!-- don't forget to update CHANGELOG.md file(s) -->
 | Deprecations? | yes/no   <!-- don't forget to update UPGRADE-*.md file(s) -->
@@ -18,5 +18,5 @@ Additionally:
  - Bug fixes must be submitted against the lowest branch where they apply
    (lowest branches are regularly merged to upper ones so they get the fixes too).
  - Features and deprecations must be submitted against the branch "master".
- - Legacy code removals go to the master branch.
+ - Legacy code removals go to the main branch.
 -->

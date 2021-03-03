@@ -1,0 +1,20 @@
+on: [push, pull_request]
+name: Main
+jobs:
+  php-cs-fixer:
+    name: "PHP-CS-Fixer"
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "actions/checkout@v2"
+      - name: "PHP-CS-Fixer"
+        uses: docker://oskarstark/php-cs-fixer-ga
+        with:
+          args: --config=.php_cs --ansi --fix
+
+      - name: "Commit modified files"
+        uses: "stefanzweifel/git-auto-commit-action@v4.9.1"
+        with:
+          commit_author: "Daniel Bannert <d.bannert@anolilab.de>"
+          commit_message: "style: cs fixes"
+          commit_user_email: "d.bannert@anolilab.de"
+          commit_user_name: "prisis"
