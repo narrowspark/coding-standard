@@ -1,3 +1,10 @@
+### [5.2.1](https://github.com/narrowspark/coding-standard/compare/v5.2.0...v5.2.1) (2021-03-03)
+
+
+### Bug Fixes
+
+* added semantic-release ([c8ec6c2](https://github.com/narrowspark/coding-standard/commit/c8ec6c2a52cee08f9713741a7d42e0ce28c92e1a))
+
 v5.1.0
 ======
 
@@ -79,4 +86,3 @@ Changed,Security
 ----------------
 
  - [57: Build(deps): &#91;Security&#93; Bump minimist from 1.2.0 to 1.2.5](https://github.com/narrowspark/coding-standard/pull/57) thanks to @dependabot-preview[bot]
-
