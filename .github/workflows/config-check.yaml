@@ -80,7 +80,7 @@ jobs:
               run: echo "::set-output name=dir::$(composer config cache-files-dir)"
 
             - name: "Cache dependencies"
-              uses: actions/cache@v1
+              uses: actions/cache@v2
               with:
                   path: ${{ steps.composer-cache.outputs.dir }}
                   key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
@@ -89,10 +89,11 @@ jobs:
             - name: "Install highest dependencies"
               run: composer update --no-progress --no-suggest --no-interaction --prefer-source --ansi
 
+            - name: "create folder"
+              run: mkdir -p ./.build/php-cs-fixer
+
             - name: "validate .php_cs file"
-              run: |
-                mkdir -R ./.build/php-cs-fixer &&
-                ./vendor/bin/php-cs-fixer fix --config="./.php_cs" --ansi --dry-run
+              run: ./vendor/bin/php-cs-fixer fix --config="./.php_cs" --ansi --dry-run
 
             - name: "validate base_rules.neon file"
               run: ./vendor/bin/phpstan analyse -c ./base_rules.neon ./
