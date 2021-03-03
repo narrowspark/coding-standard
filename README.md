@@ -10,6 +10,120 @@ composer require narrowspark/coding-standard
 
 Use
 ------------
+### Settings.yml
+
+Create a configuration file `settings.yml` in `.github`
+
+```yaml
+# https://github.com/probot/settings
+
+branches:
+  - name: main
+    protection:
+      enforce_admins: false
+      required_pull_request_reviews:
+        dismiss_stale_reviews: true
+        require_code_owner_reviews: true
+        required_approving_review_count: 1
+      restrictions:
+
+        # https://developer.github.com/v3/repos/branches/#parameters-1
+
+        # Note: User, app, and team restrictions are only available for organization-owned repositories.
+        # Set to null to disable when using this configuration for a repository on a personal account.
+
+        apps: []
+        teams: []
+
+labels:
+  - name: Added
+    description: "Changelog Added"
+    color: 90db3f
+
+  - name: Changed
+    description: "Changelog Changed"
+    color: fbca04
+
+  - name: dependency
+    description: "Pull requests that update a dependency file"
+    color: e1f788
+
+  - name: Deprecated
+    description: "Changelog Deprecated"
+    color: 1d76db
+
+  - name: Duplicate
+    color: 000000
+
+  - name: Enhancement
+    color: d7e102
+
+  - name: Fixed
+    description: "Changelog Fixed"
+    color: 9ef42e
+
+  - name: Removed
+    description: "Changelog Removed"
+    color: e99695
+
+  - name: Security
+    description: "Changelog Security"
+    color: ed3e3b
+
+  - name: "Status: Good first issue"
+    color: d7e102
+
+  - name: "Status: Help wanted"
+    color: 85d84e
+
+  - name: "Status: Needs Work"
+    color: fad8c7
+
+  - name: "Status: Waiting for feedback"
+    color: fef2c0
+
+  - name: "Type: BC Break"
+    color: b60205
+
+  - name: "Type: Bug"
+    color: b60205
+
+  - name: "Type: Critical"
+    color: ff8c00
+
+  - name: "Type: RFC"
+    color: fbca04
+
+  - name: "Type: Unconfirmed"
+    color: 444444
+
+  - name: "Type: Wontfix"
+    color: 000000
+
+repository:
+  allow_merge_commit: true
+  allow_rebase_merge: false
+  allow_squash_merge: false
+  archived: false
+  default_branch: main
+  delete_branch_on_merge: true
+  # Needs to be added
+  description: ""
+  has_downloads: true
+  has_issues: true
+  has_pages: false
+  has_projects: false
+  has_wiki: false
+  # Needs to be added
+  name: ""
+  private: false
+
+  # https://developer.github.com/v3/repos/branches/#remove-branch-protection
+  # Needs to be added
+  topics: ""
+
+```
+
 #### PHPstan
 
 Create a configuration file `phpstan.neon`
@@ -27,7 +141,6 @@ Or
 
 ```neon
 includes:
-    - vendor/ekino/phpstan-banned-code/extension.neon
     - vendor/phpstan/phpstan-deprecation-rules/rules.neon
     - vendor/phpstan/phpstan-mockery/extension.neon
     - vendor/phpstan/phpstan-phpunit/extension.neon
@@ -36,6 +149,14 @@ includes:
     - vendor/phpstan/phpstan/conf/bleedingEdge.neon
     - vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
     - vendor/slam/phpstan-extensions/conf/slam-rules.neon
+    - vendor/symplify/phpstan-rules/config/services/services.neon
+    - vendor/symplify/phpstan-rules/config/code-complexity-rules.neon
+    - vendor/symplify/phpstan-rules/config/forbidden-static-rules.neon
+    - vendor/symplify/phpstan-rules/config/generic-rules.neon
+    - vendor/symplify/phpstan-rules/config/naming-rules.neon
+    - vendor/symplify/phpstan-rules/config/regex-rules.neon
+    - vendor/symplify/phpstan-rules/config/size-rules.neon
+    - vendor/symplify/phpstan-rules/config/test-rules.neon
 
 parameters:
     level: max
@@ -52,6 +173,7 @@ parameters:
 Follow the links to check, how to configure the rules:
 - https://github.com/phpstan/phpstan-strict-rules
 - https://github.com/ekino/phpstan-banned-code
+- https://github.com/symplify/phpstan-rules
 
 #### PHP-CS-Fixer
 
@@ -68,7 +190,7 @@ use Narrowspark\CS\Config\Config;
 $license = License\Type\MIT::markdown(
     __DIR__ . '/LICENSE.md',
     License\Range::since(
-        License\Year::fromString('2020'),
+        License\Year::fromString('2021'),
         new \DateTimeZone('UTC')
     ),
     License\Holder::fromString('Daniel Bannert'),
@@ -87,9 +209,7 @@ $config->getFinder()
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);
 
-$cacheDir = getenv('TRAVIS') ? getenv('HOME') . '/.php-cs-fixer' : __DIR__;
-
-$config->setCacheFile($cacheDir . '/.php_cs.cache');
+$config->setCacheFile(__DIR__ . '/.build/php-cs-fixer/.php_cs.cache');
 
 return $config;
 ```
@@ -124,95 +244,56 @@ Now you need to add the `phpunit` and `mockery` plugin to the created `psalm.xml
 #### Infection
 The first time you run Infection for your project, it will ask you questions to create a config file `infection.json.dist`
 
-#### Changelog
+#### Rector
 
-Create this labels on github `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`
-
-Create a configuration file `.changelog` in the root of your project with this content:
+Create `rector.php` and add the configurations to it.
 
 ```php
 <?php
+
 declare(strict_types=1);
 
-use ChangelogGenerator\ChangelogConfig;
+/**
+ * Copyright (c) 2021 Daniel Bannert
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE.md file that was distributed with this source code.
+ *
+ * @see https://github.com/narrowspark/php-cs-fixer-config
+ */
 
-return [
-    (new ChangelogConfig(
-        '{organisation name}',
-        '{repository name}',
-        '{your next version}',
-        ['Added', 'Changed', 'Deprecated', 'Removed', 'Fixed', 'Security']
-    ))
-];
-```
+use Rector\Core\Configuration\Option;
+use Rector\Core\ValueObject\PhpVersion;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
-Create a `CHANGELOG.md` file and put this on the top.
+return static function (ContainerConfigurator $containerConfigurator): void {
+    $parameters = $containerConfigurator->parameters();
 
-```markdown
-# Changelog
-All notable changes to this project will be documented in this file.
+    // paths to refactor; solid alternative to CLI arguments
+    $parameters->set(Option::PATHS, [__DIR__ . '/src', __DIR__ . '/tests']);
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
-and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+    // is your PHP version different from the one your refactor to? [default: your PHP version], uses PHP_VERSION_ID format
+    $parameters->set(Option::PHP_VERSION_FEATURES, PhpVersion::PHP_80);
 
-```
+    // auto import fully qualified class names? [default: false]
+    $parameters->set(Option::AUTO_IMPORT_NAMES, true);
 
-> **Info:**
-> for more information, take a look on [keepachangelog](https://keepachangelog.com/en/1.0.0/).
+    // skip root namespace classes, like \DateTime or \Exception [default: true]
+    $parameters->set(Option::IMPORT_SHORT_CLASSES, false);
 
-#### Rector
+    // skip classes used in PHP DocBlocks, like in /** @var \Some\Class */ [default: true]
+    $parameters->set(Option::IMPORT_DOC_BLOCKS, false);
 
-Create `rector-src.yaml` and add the configurations to it.
+    // Run Rector only on changed files
+    $parameters->set(Option::ENABLE_CACHE, true);
 
-```yaml
-imports:
-    - { resource: './vendor/thecodingmachine/safe/rector-migrate-0.7.yml' }
+    // Path to phpstan with extensions, that PHPSTan in Rector uses to determine types
+    $parameters->set(Option::PHPSTAN_FOR_RECTOR_PATH, getcwd() . '/phpstan.neon');
 
-parameters:
-    php_version_features: '7.2' # change the php version to your used one
-
-    project_type: "open-source"
-
-    sets:
-        - 'action-injection-to-constructor-injection'
-        - 'array-str-functions-to-static-call'
-        - 'celebrity'
-        - 'doctrine'
-        - 'phpstan'
-        - 'solid'
-        - 'early-return'
-        - 'doctrine-code-quality'
-        - 'dead-code'
-        - 'code-quality'
-        - 'type-declaration'
-        - 'php71'
-        - 'php72'
-#        - 'php73'
-#        - 'php74'
-```
-
-Create `rector-tests.yaml` and add the configurations to it.
-
-```yaml
-parameters:
-    php_version_features: '7.2' # change the php version to your used one
-
-    sets:
-        - 'celebrity'
-        - 'phpstan'
-        - 'phpunit-code-quality'
-        - 'phpunit-exception'
-        - 'phpunit-injector'
-        - 'phpunit-specific-method'
-        - 'early-return'
-        - 'dead-code'
-        - 'code-quality'
-        - 'type-declaration'
-        - 'php71'
-        - 'php72'
-#        - 'php73'
-#        - 'php74'
-
+    $parameters->set(Option::SETS, [
+        'action-injection-to-constructor-injection', 'array-str-functions-to-static-call', 'early-return', 'doctrine-code-quality', 'dead-code', 'code-quality', 'type-declaration', 'order', 'psr4', 'type-declaration', 'type-declaration-strict', 'php71', 'php72', 'php73', 'php74', 'php80', 'phpunit91', 'phpunit-code-quality', 'phpunit-exception', 'phpunit-yield-data-provider',
+    ]);
+};
 ```
 
 > **Info:**
@@ -225,19 +306,21 @@ Then edit your `composer.json` file and add these scripts:
 
 ```json
 {
-  "scripts": {
-    "changelog": "changelog-generator generate --config=\"./.changelog\" --file --prepend",
-    "cs": "php-cs-fixer fix --config=\"./.php_cs\" --ansi",
-    "cs:check": "php-cs-fixer fix --config=\"./.php_cs\" --ansi --dry-run",
-    "phpstan": "phpstan analyse -c ./phpstan.neon --ansi",
-    "psalm": "psalm --threads=$(nproc)",
-    "psalm:fix": "psalm --alter --issues=all --threads=$(nproc) --ansi",
-    "infection": "infection --configuration=\"./infection.json\" -j$(nproc) --ansi",
-    "rector-src": "rector process ./src/ --config=./rector-src.yaml --ansi --dry-run",
-    "rector-src:fix": "rector process ./src/ --config=./rector-src.yaml --ansi",
-    "rector-tests": "rector process ./tests/ --config=./rector-tests.yaml --ansi --dry-run",
-    "rector-tests:fix": "rector process ./tests/ --config=./rector-tests.yaml --ansi"
-  }
+    "scripts": {
+        "coverage": [
+            "phpunit --dump-xdebug-filter=./.build/phpunit/.xdebug-filter.php",
+            "phpunit --prepend=./.build/phpunit/.xdebug-filter.php --coverage-html=./.build/phpunit/coverage"
+        ],
+        "cs": "php-cs-fixer fix --config=\"./.php_cs\" --ansi",
+        "cs:check": "php-cs-fixer fix --config=\"./.php_cs\" --ansi --dry-run",
+        "infection": "XDEBUG_MODE=coverage infection --configuration=\"./infection.json\" -j$(nproc) --ansi",
+        "phpstan": "phpstan analyse -c ./phpstan.neon --ansi",
+        "psalm": "psalm --threads=$(nproc)",
+        "psalm:fix": "psalm --alter --issues=all --threads=$(nproc) --ansi",
+        "rector": "rector process --ansi --dry-run",
+        "rector:fix": "rector process --ansi",
+        "test": "phpunit"
+    }
 }
 ```
 
