@@ -146,7 +146,6 @@ includes:
     - vendor/phpstan/phpstan-phpunit/extension.neon
     - vendor/phpstan/phpstan-phpunit/rules.neon
     - vendor/phpstan/phpstan-strict-rules/rules.neon
-    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
     - vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
     - vendor/slam/phpstan-extensions/conf/slam-rules.neon
     - vendor/symplify/phpstan-rules/config/services/services.neon
@@ -161,6 +160,8 @@ includes:
 parameters:
     level: max
     inferPrivatePropertyTypeFromConstructor: true
+
+    tmpDir: %currentWorkingDirectory%/.build/phpstan
 
     excludes_analyse:
         - vendor
@@ -228,6 +229,52 @@ Add your config with this command.
 ./vendor/bin/psalm --init
 ```
 
+or use our configuration
+
+```xml
+<?xml version="1.0"?>
+<psalm
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config/vendor/vimeo/psalm/config.xsd"
+    cacheDirectory="./.build/psalm"
+    errorBaseline="psalm-baseline.xml"
+    resolveFromConfigFile="true"
+    allowStringToStandInForClass='true'
+    findUnusedCode='true'
+    findUnusedVariablesAndParams='true'
+    strictBinaryOperands='true'
+    totallyTyped='true'
+    usePhpDocMethodsWithoutMagicCall='true'
+    phpVersion='8.0'
+    errorLevel='8'
+>
+    <issueHandlers>
+        <LessSpecificReturnType errorLevel="info" />
+    </issueHandlers>
+
+    <plugins>
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin" />
+    </plugins>
+
+    <projectFiles>
+        <directory name="src" />
+        <directory name="tests" />
+        <ignoreFiles>
+            <directory name="vendor" />
+            <directory name=".build" />
+            <directory name=".docker" />
+            <directory name=".github" />
+        </ignoreFiles>
+    </projectFiles>
+
+    <issueHandlers>
+        <PossiblyUndefinedIntArrayOffset errorLevel="error" />
+        <PossiblyUndefinedStringArrayOffset errorLevel="error" />
+    </issueHandlers>
+</psalm>
+```
+
 Now you need to add the `phpunit` and `mockery` plugin to the created `psalm.xml`
 
 ```diff
@@ -287,8 +334,22 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     // Run Rector only on changed files
     $parameters->set(Option::ENABLE_CACHE, true);
 
-    // Path to phpstan with extensions, that PHPSTan in Rector uses to determine types
-    $parameters->set(Option::PHPSTAN_FOR_RECTOR_PATH, getcwd() . '/phpstan.neon');
+    $phpstanPath = getcwd() . '/phpstan.neon';
+    $phpstanNeonContent = FileSystem::read($phpstanPath);
+    $bleedingEdgePattern = '#\n\s+-(.*?)bleedingEdge\.neon[\'|"]?#';
+
+    // bleeding edge clean out, see https://github.com/rectorphp/rector/issues/2431
+    if (Strings::match($phpstanNeonContent, $bleedingEdgePattern)) {
+        $temporaryPhpstanNeon = getcwd() . '/rector-temp-phpstan.neon';
+        $clearedPhpstanNeonContent = Strings::replace($phpstanNeonContent, $bleedingEdgePattern);
+
+        FileSystem::write($temporaryPhpstanNeon, $clearedPhpstanNeonContent);
+
+        $phpstanPath = $temporaryPhpstanNeon;
+    }
+
+    // Path to phpstan with extensions, that PHPStan in Rector uses to determine types
+    $parameters->set(Option::PHPSTAN_FOR_RECTOR_PATH, $phpstanPath);
 
     $parameters->set(Option::SETS, [
         'action-injection-to-constructor-injection', 'array-str-functions-to-static-call', 'early-return', 'doctrine-code-quality', 'dead-code', 'code-quality', 'type-declaration', 'order', 'psr4', 'type-declaration', 'type-declaration-strict', 'php71', 'php72', 'php73', 'php74', 'php80', 'phpunit91', 'phpunit-code-quality', 'phpunit-exception', 'phpunit-yield-data-provider',
@@ -307,19 +368,17 @@ Then edit your `composer.json` file and add these scripts:
 ```json
 {
     "scripts": {
-        "coverage": [
-            "phpunit --dump-xdebug-filter=./.build/phpunit/.xdebug-filter.php",
-            "phpunit --prepend=./.build/phpunit/.xdebug-filter.php --coverage-html=./.build/phpunit/coverage"
-        ],
         "cs": "php-cs-fixer fix --config=\"./.php_cs\" --ansi",
         "cs:check": "php-cs-fixer fix --config=\"./.php_cs\" --ansi --dry-run",
         "infection": "XDEBUG_MODE=coverage infection --configuration=\"./infection.json\" -j$(nproc) --ansi",
-        "phpstan": "phpstan analyse -c ./phpstan.neon --ansi",
+        "phpstan": "phpstan analyse -c ./phpstan.neon --ansi --memory-limit=-1",
+        "phpstan:baseline": "phpstan analyse -c ./phpstan.neon --ansi --generate-baseline --memory-limit=-1",
         "psalm": "psalm --threads=$(nproc)",
-        "psalm:fix": "psalm --alter --issues=all --threads=$(nproc) --ansi",
+        "psalm:fix": "psalm --alter --issues=all --threads=$(nproc)",
         "rector": "rector process --ansi --dry-run",
         "rector:fix": "rector process --ansi",
-        "test": "phpunit"
+        "test": "phpunit",
+        "test:coverage": "phpunit --coverage-html=./.build/phpunit/coverage"
     }
 }
 ```
