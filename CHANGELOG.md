@@ -1,3 +1,10 @@
+### [5.2.2](https://github.com/narrowspark/coding-standard/compare/v5.2.1...v5.2.2) (2021-03-10)
+
+
+### Bug Fixes
+
+* removed bleedingEdge from base_rules.neon ([ce24561](https://github.com/narrowspark/coding-standard/commit/ce24561f98606cbcc5976cb7e96ccec37a09803f))
+
 ### [5.2.1](https://github.com/narrowspark/coding-standard/compare/v5.2.0...v5.2.1) (2021-03-03)
 
 
