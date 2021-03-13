@@ -42,7 +42,7 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5.2",
-        "symfony/var-exporter": "^5.2.3"
+        "symfony/var-exporter": "5.2.4"
     },
     "suggest": {
         "phpstan/phpstan-doctrine": "Doctrine extensions for PHPStan (*)",
