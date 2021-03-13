@@ -229,7 +229,7 @@ Add your config with this command.
 ./vendor/bin/psalm --init
 ```
 
-or use our configuration
+Or use our configuration
 
 ```xml
 <?xml version="1.0"?>
