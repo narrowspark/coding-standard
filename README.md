@@ -311,6 +311,8 @@ declare(strict_types=1);
 
 use Rector\Core\Configuration\Option;
 use Rector\Core\ValueObject\PhpVersion;
+use Rector\PHPUnit\Sets\PHPUnitSetList;
+use Rector\Set\ValueObject\SetList;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -352,7 +354,28 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters->set(Option::PHPSTAN_FOR_RECTOR_PATH, $phpstanPath);
 
     $parameters->set(Option::SETS, [
-        'action-injection-to-constructor-injection', 'array-str-functions-to-static-call', 'early-return', 'doctrine-code-quality', 'dead-code', 'code-quality', 'type-declaration', 'order', 'psr4', 'type-declaration', 'type-declaration-strict', 'php71', 'php72', 'php73', 'php74', 'php80', 'phpunit91', 'phpunit-code-quality', 'phpunit-exception', 'phpunit-yield-data-provider',
+        SetList::CODING_STYLE,
+        SetList::CODE_QUALITY,
+        SetList::CODE_QUALITY_STRICT,
+        SetList::DEAD_CODE,
+        SetList::PRIVATIZATION,
+        SetList::NAMING,
+        SetList::TYPE_DECLARATION,
+        SetList::ORDER,
+        PHPUnitSetList::PHPUNIT_CODE_QUALITY,
+        PHPUnitSetList::PHPUNIT_91,
+        PHPUnitSetList::PHPUNIT_EXCEPTION,
+        PHPUnitSetList::PHPUNIT_YIELD_DATA_PROVIDER,
+        PHPUnitSetList::PHPUNIT_SPECIFIC_METHOD,
+        SetList::PHP_71,
+        SetList::PHP_72,
+        SetList::PHP_73,
+        SetList::PHP_74,
+        SetList::PHP_80,
+        SetList::EARLY_RETURN,
+        SetList::TYPE_DECLARATION_STRICT,
+        SetList::PSR_4,
+        // SetList::SAFE_07, enable if https://github.com/thecodingmachine/safe is used
     ]);
 };
 ```
