@@ -1,3 +1,11 @@
+### [5.2.3](https://github.com/narrowspark/coding-standard/compare/v5.2.2...v5.2.3) (2021-03-23)
+
+
+### Bug Fixes
+
+* fixed settings for rector/rector v0.10.0 ([0b28316](https://github.com/narrowspark/coding-standard/commit/0b28316ec175c4dc9beaa1b20ba5d5cb4ec0877e))
+* rename branch alias from master to main ([e9d86f3](https://github.com/narrowspark/coding-standard/commit/e9d86f3b64475a72eafd8398ae9176ec44a3148b))
+
 ### [5.2.2](https://github.com/narrowspark/coding-standard/compare/v5.2.1...v5.2.2) (2021-03-10)
 
 
