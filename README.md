@@ -203,9 +203,15 @@ $license->save();
 $config = new Config($license->header());
 $config->getFinder()
     ->files()
-    ->in(__DIR__ . DIRECTORY_SEPARATOR . 'src')
-    ->exclude('build')
-    ->exclude('vendor')
+    ->in(__DIR__)
+    ->exclude([
+        '.build',
+        '.docker',
+        '.github',
+        'vendor'
+    ])
+    // php_unit_namespaced rule thinks than the const are some namespaces
+    ->notPath('rector.php')
     ->name('*.php')
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);
