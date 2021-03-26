@@ -1,0 +1,76 @@
+parameters:
+    symplify:
+        no_chain_method_call:
+            allowed_chain_types:
+                - Mockery
+                - Mockery\MockInterface
+                - Mockery\ExpectationInterface
+                - Mockery\Expectation
+                - Mockery\HigherOrderMessage
+        prevent_duplicate_class_method:
+            minimum_line_count: 4
+        no_short_name:
+            min_name_length: 2
+        forbidden_complex_func_call:
+            forbidden_complex_functions:
+                - 'array_filter'
+            maximum_stmt_count: 2
+        forbidden_node:
+            forbidden_nodes:
+                - PhpParser\Node\Expr\Empty_
+                - PhpParser\Node\Stmt\Switch_
+                - PhpParser\Node\Expr\ErrorSuppress
+        forbidden_func_call:
+            forbidden_functions:
+                - 'd'
+                - 'dd'
+                - 'dump'
+                - 'var_dump'
+                - 'extract'
+                - 'curl_*'
+                - 'compact'
+                - 'method_exists'
+                - 'property_exists'
+                - 'spl_autoload_register'
+                - 'spl_autoload_unregister'
+                - array_walk
+        see_annotation_to_test:
+            required_see_types:
+                - PHPStan\Rules\Rule
+        class_name_respects_parent_suffix:
+            parent_classes:
+                - Symfony\Component\Console\Command\Command
+        too_long_variable:
+            max_variable_length: 10
+
+parametersSchema:
+    symplify: structure([
+        no_chain_method_call: structure([
+            allowed_chain_types: listOf(string())
+        ])
+        prevent_duplicate_class_method: structure([
+            minimum_line_count: schema(number())
+        ])
+        no_short_name: structure([
+            min_name_length: schema(number())
+        ])
+        forbidden_complex_func_call: structure([
+            forbidden_complex_functions: listOf(string())
+            maximum_stmt_count: schema(number())
+        ])
+        forbidden_node: structure([
+            forbidden_nodes: listOf(string())
+        ])
+        forbidden_func_call: structure([
+            forbidden_functions: listOf(string())
+        ])
+        see_annotation_to_test: structure([
+            required_see_types: listOf(string())
+        ])
+        class_name_respects_parent_suffix: structure([
+            parent_classes: listOf(string())
+        ])
+        too_long_variable: structure([
+            max_variable_length: schema(number())
+        ])
+    ])

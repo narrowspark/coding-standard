@@ -126,55 +126,81 @@ repository:
 
 #### PHPstan
 
-Create a configuration file `phpstan.neon`
-
-Add the rules manually or use `composer require --dev phpstan/extension-installer`.
-
-If you don’t want to use `phpstan/extension-installer`, include extension.neon in your project’s PHPStan config:
+Create a configuration file `phpstan.neon` and `phpstan-baseline.neon`.
 
 ```neon
 includes:
     - vendor/narrowspark/coding-standard/base_rules.neon
-```
-
-Or
-
-```neon
-includes:
-    - vendor/phpstan/phpstan-deprecation-rules/rules.neon
-    - vendor/phpstan/phpstan-mockery/extension.neon
-    - vendor/phpstan/phpstan-phpunit/extension.neon
-    - vendor/phpstan/phpstan-phpunit/rules.neon
-    - vendor/phpstan/phpstan-strict-rules/rules.neon
-    - vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
-    - vendor/slam/phpstan-extensions/conf/slam-rules.neon
-    - vendor/symplify/phpstan-rules/config/services/services.neon
-    - vendor/symplify/phpstan-rules/config/code-complexity-rules.neon
-    - vendor/symplify/phpstan-rules/config/forbidden-static-rules.neon
-    - vendor/symplify/phpstan-rules/config/generic-rules.neon
-    - vendor/symplify/phpstan-rules/config/naming-rules.neon
-    - vendor/symplify/phpstan-rules/config/regex-rules.neon
-    - vendor/symplify/phpstan-rules/config/size-rules.neon
-    - vendor/symplify/phpstan-rules/config/test-rules.neon
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    - %currentWorkingDirectory%/phpstan-baseline.neon
 
 parameters:
     level: max
     inferPrivatePropertyTypeFromConstructor: true
 
+    paths:
+        -  %currentWorkingDirectory%/src
+        -  %currentWorkingDirectory%/tests
+
     tmpDir: %currentWorkingDirectory%/.build/phpstan
 
     excludes_analyse:
         - vendor
-
-    banned_code:
-        # enable detection of `use Tests\Foo\Bar` in a non-test file
-        use_from_tests: true
 ```
 
 Follow the links to check, how to configure the rules:
 - https://github.com/phpstan/phpstan-strict-rules
-- https://github.com/ekino/phpstan-banned-code
 - https://github.com/symplify/phpstan-rules
+
+The Narrowspark PHPstan rules providing configurations for `symplify/phpstan-rules`.
+
+Default configurations:
+```neon
+parameters:
+    symplify:
+        no_chain_method_call:
+            allowed_chain_types:
+                - Mockery
+                - Mockery\MockInterface
+                - Mockery\ExpectationInterface
+                - Mockery\Expectation
+                - Mockery\HigherOrderMessage
+        prevent_duplicate_class_method:
+            minimum_line_count: 4
+        no_short_name:
+            min_name_length: 2
+        forbidden_complex_func_call:
+            forbidden_complex_functions:
+                - 'array_filter'
+            maximum_stmt_count: 2
+        forbidden_node:
+            forbidden_nodes:
+                - PhpParser\Node\Expr\Empty_
+                - PhpParser\Node\Stmt\Switch_
+                - PhpParser\Node\Expr\ErrorSuppress
+        forbidden_func_call:
+            forbidden_functions:
+                - 'd'
+                - 'dd'
+                - 'dump'
+                - 'var_dump'
+                - 'extract'
+                - 'curl_*'
+                - 'compact'
+                - 'method_exists'
+                - 'property_exists'
+                - 'spl_autoload_register'
+                - 'spl_autoload_unregister'
+                - array_walk
+        see_annotation_to_test:
+            required_see_types:
+                - PHPStan\Rules\Rule
+        class_name_respects_parent_suffix:
+            parent_classes:
+                - Symfony\Component\Console\Command\Command
+        too_long_variable:
+            max_variable_length: 10
+```
 
 #### PHP-CS-Fixer
 
@@ -317,7 +343,7 @@ declare(strict_types=1);
 
 use Rector\Core\Configuration\Option;
 use Rector\Core\ValueObject\PhpVersion;
-use Rector\PHPUnit\Sets\PHPUnitSetList;
+use Rector\PHPUnit\Set\PHPUnitSetList;
 use Rector\Set\ValueObject\SetList;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
@@ -368,11 +394,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         SetList::NAMING,
         SetList::TYPE_DECLARATION,
         SetList::ORDER,
-        PHPUnitSetList::PHPUNIT_CODE_QUALITY,
-        PHPUnitSetList::PHPUNIT_91,
-        PHPUnitSetList::PHPUNIT_EXCEPTION,
-        PHPUnitSetList::PHPUNIT_YIELD_DATA_PROVIDER,
-        PHPUnitSetList::PHPUNIT_SPECIFIC_METHOD,
         SetList::PHP_71,
         SetList::PHP_72,
         SetList::PHP_73,
@@ -382,6 +403,11 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         SetList::TYPE_DECLARATION_STRICT,
         SetList::PSR_4,
         // SetList::SAFE_07, enable if https://github.com/thecodingmachine/safe is used
+        PHPUnitSetList::PHPUNIT_CODE_QUALITY,
+        PHPUnitSetList::PHPUNIT_91,
+        PHPUnitSetList::PHPUNIT_EXCEPTION,
+        PHPUnitSetList::PHPUNIT_YIELD_DATA_PROVIDER,
+        PHPUnitSetList::PHPUNIT_SPECIFIC_METHOD,
     ]);
 };
 ```

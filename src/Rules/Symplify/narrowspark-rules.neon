@@ -1,0 +1,4 @@
+services:
+    -
+        class: Symplify\PHPStanRules\Rules\RequiredAbstractClassKeywordRule
+        tags: [phpstan.rules.rule]
