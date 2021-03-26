@@ -1,3 +1,10 @@
+### [5.3.1](https://github.com/narrowspark/coding-standard/compare/v5.3.0...v5.3.1) (2021-03-26)
+
+
+### Bug Fixes
+
+* disabled PHPStan PHPUnit ShouldCallParentMethodsRule ([810bd22](https://github.com/narrowspark/coding-standard/commit/810bd22223861bac3ebff9d624fc2356653b87e9))
+
 ## [5.3.0](https://github.com/narrowspark/coding-standard/compare/v5.2.3...v5.3.0) (2021-03-26)
 
 
