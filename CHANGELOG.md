@@ -1,3 +1,10 @@
+### [5.3.2](https://github.com/narrowspark/coding-standard/compare/v5.3.1...v5.3.2) (2021-03-26)
+
+
+### Bug Fixes
+
+* fixed folder name, added tests to semantic-release.yml ([ad138d2](https://github.com/narrowspark/coding-standard/commit/ad138d2dd6253331090c50e7b7d80d50d468e131))
+
 ### [5.3.1](https://github.com/narrowspark/coding-standard/compare/v5.3.0...v5.3.1) (2021-03-26)
 
 
