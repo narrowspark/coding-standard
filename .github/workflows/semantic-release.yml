@@ -13,18 +13,18 @@ on: # yamllint disable-line rule:truthy
             - "beta"
 
 jobs:
-    config-check:
+    test:
         name: "Config Check"
 
         runs-on: "ubuntu-latest"
 
         strategy:
             matrix:
-                php-versions: [ "8.0" ]
-                dependencies: [ "locked" ]
+                php-versions: ["8.0"]
+                dependencies: ["locked"]
 
         env:
-            key: "license-update-linux-v2" # change key (version) to clear cache
+            key: "semantic-release-linux-v1" # change key (version) to clear cache
             extensions: "mbstring"
             ini-values: "date.timezone=Europe/Berlin, assert.exception=1, zend.assertions=1, opcache.enable=1, opcache.enable_cli=0, opcache.optimization_level=-1, opcache.jit=1255, opcache.jit_buffer_size=32M, serialize_precision=14"
             tools: "composer, cs2pr"
@@ -108,6 +108,8 @@ jobs:
         if: "github.repository != 'narrowspark/php-library-template'"
 
         runs-on: "ubuntu-latest"
+
+        needs: ["test"]
 
         steps:
             - uses: "actions/checkout@v2"
