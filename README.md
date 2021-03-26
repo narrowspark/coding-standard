@@ -152,6 +152,56 @@ Follow the links to check, how to configure the rules:
 - https://github.com/phpstan/phpstan-strict-rules
 - https://github.com/symplify/phpstan-rules
 
+The Narrowspark PHPstan rules providing configurations for `symplify/phpstan-rules`.
+
+Default configurations:
+```neon
+parameters:
+    symplify:
+        no_chain_method_call:
+            allowed_chain_types:
+                - Mockery
+                - Mockery\MockInterface
+                - Mockery\ExpectationInterface
+                - Mockery\Expectation
+                - Mockery\HigherOrderMessage
+        prevent_duplicate_class_method:
+            minimum_line_count: 4
+        no_short_name:
+            min_name_length: 2
+        forbidden_complex_func_call:
+            forbidden_complex_functions:
+                - 'array_filter'
+            maximum_stmt_count: 2
+        forbidden_node:
+            forbidden_nodes:
+                - PhpParser\Node\Expr\Empty_
+                - PhpParser\Node\Stmt\Switch_
+                - PhpParser\Node\Expr\ErrorSuppress
+        forbidden_func_call:
+            forbidden_functions:
+                - 'd'
+                - 'dd'
+                - 'dump'
+                - 'var_dump'
+                - 'extract'
+                - 'curl_*'
+                - 'compact'
+                - 'method_exists'
+                - 'property_exists'
+                - 'spl_autoload_register'
+                - 'spl_autoload_unregister'
+                - array_walk
+        see_annotation_to_test:
+            required_see_types:
+                - PHPStan\Rules\Rule
+        class_name_respects_parent_suffix:
+            parent_classes:
+                - Symfony\Component\Console\Command\Command
+        too_long_variable:
+            max_variable_length: 10
+```
+
 #### PHP-CS-Fixer
 
 Create a configuration file `.php_cs` in the root of your project with this content:
