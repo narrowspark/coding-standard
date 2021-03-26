@@ -126,54 +126,30 @@ repository:
 
 #### PHPstan
 
-Create a configuration file `phpstan.neon`
-
-Add the rules manually or use `composer require --dev phpstan/extension-installer`.
-
-If you don’t want to use `phpstan/extension-installer`, include extension.neon in your project’s PHPStan config:
+Create a configuration file `phpstan.neon` and `phpstan-baseline.neon`.
 
 ```neon
 includes:
     - vendor/narrowspark/coding-standard/base_rules.neon
-```
-
-Or
-
-```neon
-includes:
-    - vendor/phpstan/phpstan-deprecation-rules/rules.neon
-    - vendor/phpstan/phpstan-mockery/extension.neon
-    - vendor/phpstan/phpstan-phpunit/extension.neon
-    - vendor/phpstan/phpstan-phpunit/rules.neon
-    - vendor/phpstan/phpstan-strict-rules/rules.neon
-    - vendor/thecodingmachine/phpstan-strict-rules/phpstan-strict-rules.neon
-    - vendor/slam/phpstan-extensions/conf/slam-rules.neon
-    - vendor/symplify/phpstan-rules/config/services/services.neon
-    - vendor/symplify/phpstan-rules/config/code-complexity-rules.neon
-    - vendor/symplify/phpstan-rules/config/forbidden-static-rules.neon
-    - vendor/symplify/phpstan-rules/config/generic-rules.neon
-    - vendor/symplify/phpstan-rules/config/naming-rules.neon
-    - vendor/symplify/phpstan-rules/config/regex-rules.neon
-    - vendor/symplify/phpstan-rules/config/size-rules.neon
-    - vendor/symplify/phpstan-rules/config/test-rules.neon
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    - %currentWorkingDirectory%/phpstan-baseline.neon
 
 parameters:
     level: max
     inferPrivatePropertyTypeFromConstructor: true
 
+    paths:
+        -  %currentWorkingDirectory%/src
+        -  %currentWorkingDirectory%/tests
+
     tmpDir: %currentWorkingDirectory%/.build/phpstan
 
     excludes_analyse:
         - vendor
-
-    banned_code:
-        # enable detection of `use Tests\Foo\Bar` in a non-test file
-        use_from_tests: true
 ```
 
 Follow the links to check, how to configure the rules:
 - https://github.com/phpstan/phpstan-strict-rules
-- https://github.com/ekino/phpstan-banned-code
 - https://github.com/symplify/phpstan-rules
 
 #### PHP-CS-Fixer
@@ -317,7 +293,7 @@ declare(strict_types=1);
 
 use Rector\Core\Configuration\Option;
 use Rector\Core\ValueObject\PhpVersion;
-use Rector\PHPUnit\Sets\PHPUnitSetList;
+use Rector\PHPUnit\Set\PHPUnitSetList;
 use Rector\Set\ValueObject\SetList;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
@@ -368,11 +344,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         SetList::NAMING,
         SetList::TYPE_DECLARATION,
         SetList::ORDER,
-        PHPUnitSetList::PHPUNIT_CODE_QUALITY,
-        PHPUnitSetList::PHPUNIT_91,
-        PHPUnitSetList::PHPUNIT_EXCEPTION,
-        PHPUnitSetList::PHPUNIT_YIELD_DATA_PROVIDER,
-        PHPUnitSetList::PHPUNIT_SPECIFIC_METHOD,
         SetList::PHP_71,
         SetList::PHP_72,
         SetList::PHP_73,
@@ -382,6 +353,11 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         SetList::TYPE_DECLARATION_STRICT,
         SetList::PSR_4,
         // SetList::SAFE_07, enable if https://github.com/thecodingmachine/safe is used
+        PHPUnitSetList::PHPUNIT_CODE_QUALITY,
+        PHPUnitSetList::PHPUNIT_91,
+        PHPUnitSetList::PHPUNIT_EXCEPTION,
+        PHPUnitSetList::PHPUNIT_YIELD_DATA_PROVIDER,
+        PHPUnitSetList::PHPUNIT_SPECIFIC_METHOD,
     ]);
 };
 ```

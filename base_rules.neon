@@ -22,7 +22,6 @@ includes:
     - %rootDir%/../../symplify/phpstan-rules/config/static-rules.neon
     - %rootDir%/../../symplify/phpstan-rules/config/string-to-constant-rules.neon
     - %rootDir%/../../symplify/phpstan-rules/config/test-rules.neon
-    - phar://phpstan.phar/conf/bleedingEdge.neon
 
 parameters:
     level: max
