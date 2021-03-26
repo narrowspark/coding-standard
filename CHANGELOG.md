@@ -1,3 +1,12 @@
+## [5.3.0](https://github.com/narrowspark/coding-standard/compare/v5.2.3...v5.3.0) (2021-03-26)
+
+
+### Features
+
+* added phpstan-rules configurations to readme ([8e9bcc8](https://github.com/narrowspark/coding-standard/commit/8e9bcc842234b3dd6699921fa9e13b2873a46cd1))
+* added symplify rules with configurations ([80fe75e](https://github.com/narrowspark/coding-standard/commit/80fe75e90a075a00c9484a010b4013e2d34b8412))
+* updated readme ([2a8caf9](https://github.com/narrowspark/coding-standard/commit/2a8caf9d18eda306cc36f94e290e03b8c20f6d04))
+
 ### [5.2.3](https://github.com/narrowspark/coding-standard/compare/v5.2.2...v5.2.3) (2021-03-23)
 
 
