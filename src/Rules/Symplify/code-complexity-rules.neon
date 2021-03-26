@@ -1,0 +1,22 @@
+services:
+    -
+        class: Symplify\PHPStanRules\Rules\NoPostIncPostDecRule
+        tags: [phpstan.rules.rule]
+
+    -
+        class: Symplify\PHPStanRules\Rules\NoFuncCallInMethodCallRule
+        tags: [phpstan.rules.rule]
+
+    -
+        class: Symplify\PHPStanRules\Rules\NoDynamicNameRule
+        tags: [phpstan.rules.rule]
+
+    -
+        class: Symplify\PHPStanRules\ObjectCalisthenics\Rules\NoChainMethodCallRule
+        tags: [phpstan.rules.rule]
+        arguments:
+            allowedChainTypes: '%symplify.no_chain_method_call.allowed_chain_types%'
+
+    -
+        class: Symplify\PHPStanRules\Rules\ForbiddenNestedCallInAssertMethodCallRule
+        tags: [phpstan.rules.rule]

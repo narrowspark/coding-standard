@@ -35,6 +35,8 @@ jobs:
                       @google/semantic-release-replace-plugin@^1.0.0
                       conventional-changelog-conventionalcommits@^4.3.0
               env:
+                  # We can't rely on the GITHUB_TOKEN as we need to trigger
+                  # further actions and the GITHUB_TOKEN doesn't allow it
                   GITHUB_TOKEN: "${{ secrets.SEMANTIC_RELEASE_GITHUB_TOKEN }}"
                   GIT_AUTHOR_NAME: "github-actions-shell"
                   GIT_AUTHOR_EMAIL: "github-actions[bot]@users.noreply.github.com"

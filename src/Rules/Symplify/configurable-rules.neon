@@ -1,0 +1,37 @@
+services:
+    -
+        class: Symplify\PHPStanRules\Rules\PreventDuplicateClassMethodRule
+        tags: [phpstan.rules.rule]
+        arguments:
+            minimumLineCount: '%symplify.prevent_duplicate_class_method.minimum_line_count%'
+
+    -
+        class: Symplify\PHPStanRules\ObjectCalisthenics\Rules\NoShortNameRule
+        tags: [phpstan.rules.rule]
+        arguments:
+            minNameLength: '%symplify.no_short_name.min_name_length%'
+
+    -
+        class: Symplify\PHPStanRules\Rules\ForbiddenComplexFuncCallRule
+        tags: [phpstan.rules.rule]
+        arguments:
+            forbiddenComplexFunctions: '%symplify.forbidden_complex_func_call.forbidden_complex_functions%'
+            maximumStmtCount: '%symplify.forbidden_complex_func_call.maximum_stmt_count%'
+
+    -
+        class: Symplify\PHPStanRules\Rules\ForbiddenNodeRule
+        tags: [phpstan.rules.rule]
+        arguments:
+            forbiddenNodes: '%symplify.forbidden_node.forbidden_nodes%'
+
+    -
+        class: Symplify\PHPStanRules\Rules\ForbiddenFuncCallRule
+        tags: [phpstan.rules.rule]
+        arguments:
+            forbiddenFunctions: '%symplify.forbidden_func_call.forbidden_functions%'
+
+    -
+        class: Symplify\PHPStanRules\Rules\SeeAnnotationToTestRule
+        tags: [phpstan.rules.rule]
+        arguments:
+            requiredSeeTypes: '%symplify.see_annotation_to_test.required_see_types%'

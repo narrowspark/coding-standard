@@ -1,0 +1,29 @@
+services:
+    -
+        class: Symplify\PHPStanRules\Rules\SuffixInterfaceRule
+        tags: [phpstan.rules.rule]
+
+    -
+        class: Symplify\PHPStanRules\Rules\SuffixTraitRule
+        tags: [phpstan.rules.rule]
+
+    -
+        class: Symplify\PHPStanRules\Rules\PrefixAbstractClassRule
+        tags: [phpstan.rules.rule]
+
+    -
+        class: Symplify\PHPStanRules\Rules\UppercaseConstantRule
+        tags: [phpstan.rules.rule]
+
+    -
+        class: Symplify\PHPStanRules\Rules\ClassNameRespectsParentSuffixRule
+        tags: [phpstan.rules.rule]
+        arguments:
+            parentClasses: '%symplify.class_name_respects_parent_suffix.parent_classes%'
+    -
+        class: Symplify\PHPStanRules\Rules\CheckTypehintCallerTypeRule
+        tags: [phpstan.rules.rule]
+
+    -
+        class: Symplify\PHPStanRules\Rules\CheckClassNamespaceFollowPsr4Rule
+        tags: [phpstan.rules.rule]

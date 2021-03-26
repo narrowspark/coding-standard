@@ -68,7 +68,8 @@
     "scripts": {
         "build": "\\CreatePhpCsFixerList::build",
         "cs": "php-cs-fixer fix --config=\"./.php_cs\" --ansi",
-        "cs:check": "php-cs-fixer fix --config=\"./.php_cs\" --ansi --dry-run"
+        "cs:check": "php-cs-fixer fix --config=\"./.php_cs\" --ansi --dry-run",
+        "phpstan": "phpstan analyse -c ./base_rules.neon ./"
     },
     "support": {
         "issues": "https://github.com/narrowspark/coding-standard/issues",

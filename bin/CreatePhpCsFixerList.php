@@ -23,7 +23,8 @@ final class CreatePhpCsFixerList
      */
     public static function build(): int
     {
-        $rules = (new Config())->getRules();
+        $config = new Config();
+        $rules = $config->getRules();
 
         ksort($rules);
 
