@@ -5,7 +5,7 @@
         "node": "^14.0.0"
     },
     "dependencies": {
-        "@anolilab/textlint-config": "^1.0.1"
+        "@anolilab/textlint-config": "^2.0.0"
     },
     "scripts": {
         "lint": "textlint ./.build/ISSUE_TEMPLATE/** ./src/** ./docs/** ./README.md --dry-run",
